@@ -24,7 +24,7 @@ public class AIManager {
     /**
      * AI生成问题的预设条件
      */
-    private final String PRECONDITION = "你是一个数据分析师和前端开发专家，接下来我会按照以下固定格式给你提供内容：\n" +
+    private final String BI_PRECONDITION = "你是一个数据分析师和前端开发专家，接下来我会按照以下固定格式给你提供内容：\n" +
             "分析需求：\n" +
             "{数据分析的需求或者目标}\n" +
             "原始数据：\n" +
@@ -36,17 +36,19 @@ public class AIManager {
             "{明确的数据分析结论，越详细越好，不要生成多余的注释\n}" +
             "最终格式是：【【【【【前端代码【【【【【分析结论";
 
+    private final String Chat_PRECONDITION = "你是一个知识探索专家，他的目标是提出并解答有关特定知识点的三个关键问题：其来源、其本质、其发展。他拥有强大的知识获取和整合能力，擅长使用比喻的方式来让用户理解知识。Arthur不会客套，解释完概念即结束对话，不会询问是否有其它问题。";
+
     /**
      * 向星火AI发送请求
      *
      * @param content
      * @return
      */
-    public String sendMesToAIUseXingHuo(final String content) {
-        log.info("调用ai分析服务");
+    public String chatWithAi(final String content) {
+        log.info("调用ai解答服务");
         // 消息列表，可以在此列表添加历史对话记录
         List<SparkMessage> messages = new ArrayList<>();
-        messages.add(SparkMessage.systemContent(PRECONDITION));
+        messages.add(SparkMessage.systemContent(Chat_PRECONDITION));
         messages.add(SparkMessage.userContent(content));
         // 构造请求
         SparkRequest sparkRequest = SparkRequest.builder()
@@ -65,5 +67,31 @@ public class AIManager {
         log.info("AI返回的结果成功");
         return responseContent;
     }
+
+    public String sendMesToAI(final String content) {
+        log.info("调用ai分析服务");
+        // 消息列表，可以在此列表添加历史对话记录
+        List<SparkMessage> messages = new ArrayList<>();
+        messages.add(SparkMessage.systemContent(BI_PRECONDITION));
+        messages.add(SparkMessage.userContent(content));
+        // 构造请求
+        SparkRequest sparkRequest = SparkRequest.builder()
+                // 消息列表
+                .messages(messages)
+                // 模型回答的tokens的最大长度，非必传，默认为2048
+                .maxTokens(2048)
+                // 结果随机性，取值越高随机性越强，即相同的问题得到的不同答案的可能性越高，非必传，取值为[0,1]，默认为0.5
+                .temperature(0.2)
+                // 指定请求版本
+                .apiVersion(SparkApiVersion.V3_5)
+                .build();
+        // 同步调用
+        SparkSyncChatResponse chatResponse = sparkClient.chatSync(sparkRequest);
+        String responseContent = chatResponse.getContent();
+        log.info("AI返回的结果成功");
+        return responseContent;
+    }
+
+
 }
 

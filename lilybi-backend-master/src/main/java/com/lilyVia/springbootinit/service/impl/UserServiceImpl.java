@@ -237,4 +237,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return queryWrapper;
     }
 
+    @Override
+    public void CountAiFrequency(User user){
+        int remainFrequency = user.getRemainFrequency();
+        int totalFrequency = user.getTotalFrequency();
+        User user1 = new User();
+        user1.setRemainFrequency(remainFrequency-1);
+        user1.setTotalFrequency(totalFrequency+1);
+        user1.setId(user.getId());
+        this.updateById(user1);
+    }
+
 }

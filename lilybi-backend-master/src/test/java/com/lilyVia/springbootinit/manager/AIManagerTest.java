@@ -55,7 +55,7 @@ class AIManagerTest {
 
 //    @Test
     public void xingHuoChatTest() {
-        String s = aiManager.sendMesToAIUseXingHuo(originData);
+        String s = aiManager.sendMesToAI(originData);
         System.out.println(s);
     }
 

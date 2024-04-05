@@ -17,8 +17,6 @@ public class DeleteRequest implements Serializable {
     /**
      * 图表id
      */
-    @NotEmpty
-    @NotBlank
     @Min(0L)
     private Long id;
 

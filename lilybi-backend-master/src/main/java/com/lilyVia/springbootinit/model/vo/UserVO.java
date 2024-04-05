@@ -17,6 +17,18 @@ public class UserVO implements Serializable {
      */
     private Long id;
 
+
+    /**
+     * 已使用ai使用次数
+     */
+    private int totalFrequency;
+
+
+    /**
+     * 剩余ai使用次数
+     */
+    private int remainFrequency;
+
     /**
      * 用户昵称
      */
@@ -36,6 +48,8 @@ public class UserVO implements Serializable {
      * 创建时间
      */
     private Date createTime;
+
+
 
     private static final long serialVersionUID = 1L;
 }

@@ -16,12 +16,14 @@
             <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+            <result property="totalFrequency" column="totalFrequency" jdbcType="INTEGER"/>
+            <result property="remainFrequency" column="remainFrequency" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,userAccount,userPassword,
         unionId,mpOpenId,userName,
         userAvatar,userRole,createTime,
-        updateTime,isDelete
+        updateTime,isDelete,remainFrequency,totalFrequency
     </sql>
 </mapper>

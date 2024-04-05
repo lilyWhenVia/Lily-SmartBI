@@ -22,10 +22,25 @@ public class User implements Serializable {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
+
+
     /**
      * 用户账号
      */
     private String userAccount;
+
+
+    /**
+     * 已使用ai使用次数
+     */
+    private int totalFrequency;
+
+
+    /**
+     * 剩余ai使用次数
+     */
+    private int remainFrequency;
+
 
     /**
      * 用户密码

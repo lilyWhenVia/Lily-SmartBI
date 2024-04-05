@@ -18,16 +18,12 @@ public class PageRequest {
      * 当前页号
      */
     @NotNull
-    @NotEmpty
-    @NotBlank
     private Long current = 1L;
 
     /**
      * 页面大小
      */
     @NotNull
-    @NotEmpty
-    @NotBlank
     private Long pageSize = 10L;
 
     /**

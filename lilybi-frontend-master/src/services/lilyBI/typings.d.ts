@@ -17,7 +17,7 @@ declare namespace API {
     questionGoal?: string;
     questionName?: string;
     questionResult?: string;
-    questionStatus?: string;
+    questionStatus?: number;
     questionType?: string;
     updateTime?: string;
     userId?: number;

@@ -65,7 +65,7 @@ public class BiMqConsumer {
         String chartType = savedChart.getChartType();
         String aiQuestion = ChartService.getAiQuestion(csv, goal, chartType);
         // 调用ai接口
-        String rawData = aiManager.sendMesToAIUseXingHuo(aiQuestion);
+        String rawData = aiManager.sendMesToAI(aiQuestion);
         // 处理数据 TODO 正则清洗数据
         String[] splits = StringUtils.split(rawData, "【【【【【");
         // 生成数据校验

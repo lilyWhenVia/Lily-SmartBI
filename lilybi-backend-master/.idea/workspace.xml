@@ -51,35 +51,37 @@
     <option name="showVisibilityIcons" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/easyBI/lilybi-backend-master&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;67400c1ef93e7a0e741dfff1c1bc5ca0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "last_opened_file_path": "D:/JavaProject/easyBI/lilybi-backend-master/src/main/java/com/lilyVia/springbootinit/controller",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "terminal",
+    "spring.configuration.checksum": "67400c1ef93e7a0e741dfff1c1bc5ca0"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\controller" />
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\model\dto\question" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto\chart" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto" />
@@ -105,11 +107,11 @@
       <recent name="com.yupi.springbootinit.manager" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lilyVia.springbootinit.constant" />
+      <recent name="com.lilyVia.springbootinit.model.vo" />
+      <recent name="com.lilyVia.springbootinit.controller" />
       <recent name="com.yupi.springbootinit.mq" />
       <recent name="com.yupi.springbootinit.controller" />
-      <recent name="com.yupi.springbootinit.model.vo" />
-      <recent name="com.yupi.springbootinit.service.impl" />
-      <recent name="com.yupi.springbootinit.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,7 +249,7 @@
       <workItem from="1712197107107" duration="9197000" />
       <workItem from="1712235976881" duration="862000" />
       <workItem from="1712286034324" duration="3377000" />
-      <workItem from="1712334796396" duration="1685000" />
+      <workItem from="1712334796396" duration="12522000" />
     </task>
     <servers />
   </component>

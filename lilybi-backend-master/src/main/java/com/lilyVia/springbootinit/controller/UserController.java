@@ -34,7 +34,6 @@ import static com.lilyVia.springbootinit.service.impl.UserServiceImpl.SALT;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-//@CrossOrigin
 public class UserController {
 
     @Resource
@@ -275,5 +274,7 @@ public class UserController {
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         return ResultUtils.success(true);
     }
+
+    // region 查询相关
 
 }

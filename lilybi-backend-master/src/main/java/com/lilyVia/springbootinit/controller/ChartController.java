@@ -94,7 +94,9 @@ public class ChartController {
         String aiQuestion = ChartService.getAiQuestion(csv, goal, chartType);
 
         // 调用ai接口
-        String rawData = aiManager.sendMesToAIUseXingHuo(aiQuestion);
+        // ai次数计数
+        userService.CountAiFrequency(loginUser);
+        String rawData = aiManager.sendMesToAI(aiQuestion);
         // 处理数据 TODO 正则获取数据
         String[] splits = StringUtils.split(rawData, "【【【【【");
         ThrowUtils.throwIf(splits.length < 2, ErrorCode.AI_GEN_ERROR);
@@ -195,7 +197,9 @@ public class ChartController {
                 ChartService.handleGenChartError(chartId, "更新图表running状态失败");
             }
             // 调用ai接口
-            String rawData = aiManager.sendMesToAIUseXingHuo(aiQuestion);
+            // ai次数计数
+            userService.CountAiFrequency(loginUser);
+            String rawData = aiManager.sendMesToAI(aiQuestion);
             // 处理数据 TODO 正则清洗数据
             String[] splits = StringUtils.split(rawData, "【【【【【");
             // 生成数据校验

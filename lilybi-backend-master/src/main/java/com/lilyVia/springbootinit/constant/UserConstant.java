@@ -12,6 +12,8 @@ public interface UserConstant {
      */
     String USER_LOGIN_STATE = "user_login";
 
+    String USER_AI_Frequency = "USER_AI_Frequency";
+
     //  region 权限
 
     /**

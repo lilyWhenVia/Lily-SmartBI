@@ -68,8 +68,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="ChartCoreData" />
-                  <option name="tableName" value="chart_core_data" />
+                  <option name="className" value="Question" />
+                  <option name="tableName" value="question" />
                 </TableUIInfo>
               </list>
             </option>
