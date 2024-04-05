@@ -44,7 +44,7 @@ const Welcome: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          <MyIcon type={'icon-maomaochushou'} /> Cat 智能 BI 分析平台{' '}
+          <MyIcon type={'icon-maomaochushou'} /> lily 智能 BI 分析平台{' '}
           <MyIcon type={'icon-Artboard'} />
         </Typography.Title>
         <Paragraph>
@@ -72,7 +72,7 @@ const Welcome: React.FC = () => {
           适用范围广：由于项目能够从最原始的数据集中进行分析，因此适用于各类行业和领域。用户只需要提供自己的数据和分析目标，即可快速得到相应的分析结果。
         </Paragraph>
         <br />
-        <Divider style={{ color: 'blue' }}>AIGClily</Divider>
+        <Divider style={{ color: 'darkred' }}>lily的logo</Divider>
         <div style={{ marginLeft: '25px' }}>
           <Carousel autoplay autoplaySpeed={10000}>
             {loadedImages.map((image, index) => (

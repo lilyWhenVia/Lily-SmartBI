@@ -130,6 +130,7 @@ declare namespace API {
     frequency?: number;
   };
 
+  /** ai对话剩余次数 **/
   type AiFrequencyVO = {
     id?: number;
     remainFrequency?: number;

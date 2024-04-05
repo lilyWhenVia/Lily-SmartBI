@@ -208,32 +208,32 @@ const UserInfo: React.FC = () => {
 
   return (
     <>
-      <Divider style={{ fontWeight: 'bold', color: 'blue' }}>用户头像</Divider>
-      <Descriptions style={{ margin: '50px' }}>
-        <Row>
-          <Col style={avatarStyle}>
-            <Upload
-              name="file"
-              listType="picture-circle"
-              showUploadList={false}
-              // action="http://127.0.0.1:8103/api/oss/upload"
-              action="http://bi.konglily.top/api/oss/upload"
-              beforeUpload={beforeUpload}
-              onChange={handleChange}
-            >
-              {imageUrl ? (
-                <img
-                  src={data?.userAvatar}
-                  alt="userAvatar"
-                  style={{ width: '200%', borderRadius: '50%', height: '200%' }}
-                />
-              ) : (
-                uploadButton
-              )}
-            </Upload>
-          </Col>
-        </Row>
-      </Descriptions>
+      {/*<Divider style={{ fontWeight: 'bold', color: 'blue' }}>用户头像</Divider>*/}
+      {/*<Descriptions style={{ margin: '50px' }}>*/}
+      {/*  <Row>*/}
+      {/*    <Col style={avatarStyle}>*/}
+      {/*      <Upload*/}
+      {/*        name="file"*/}
+      {/*        listType="picture-circle"*/}
+      {/*        showUploadList={false}*/}
+      {/*        action="http://127.0.0.1:8101/api/oss/upload"*/}
+      {/*        // action="http://bi.konglily.top/api/oss/upload"*/}
+      {/*        beforeUpload={beforeUpload}*/}
+      {/*        onChange={handleChange}*/}
+      {/*      >*/}
+      {/*        {imageUrl ? (*/}
+      {/*          <img*/}
+      {/*            src={data?.userAvatar}*/}
+      {/*            alt="userAvatar"*/}
+      {/*            style={{ width: '200%', borderRadius: '50%', height: '200%' }}*/}
+      {/*          />*/}
+      {/*        ) : (*/}
+      {/*          uploadButton*/}
+      {/*        )}*/}
+      {/*      </Upload>*/}
+      {/*    </Col>*/}
+      {/*  </Row>*/}
+      {/*</Descriptions>*/}
       <Divider style={{ fontWeight: 'bold', color: 'blue' }}>AI智能分析次数</Divider>
       <Descriptions bordered size={'default'} contentStyle={{ fontWeight: 'bold', color: 'blue' }}>
         <Card style={{ textAlign: 'center' }} type="inner">
@@ -270,10 +270,7 @@ const UserInfo: React.FC = () => {
         <Descriptions.Item style={{ textAlign: 'center' }} label="用户名：">
           {myUser.userName}
         </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="性别：">
-          {myUser.gender}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="用户编号：">
+        <Descriptions.Item style={{ textAlign: 'center' }} label="用户ID：">
           {userId}
         </Descriptions.Item>
         <Descriptions.Item style={{ textAlign: 'center' }} label="用户账户：">
@@ -281,22 +278,6 @@ const UserInfo: React.FC = () => {
         </Descriptions.Item>
         <Descriptions.Item style={{ textAlign: 'center' }} label="我的身份：">
           {myUser.userRole === 'user' ? '普通用户' : '管理员'}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="手机号码：">
-          {myUser.phone === null ? '尚未填写手机号码！' : myUser.phone}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="我的邮箱：">
-          {myUser.email === null ? '尚未填写邮箱！' : myUser.email}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center', color: '#1bf113' }} label="我的状态：">
-          {/*@ts-ignore*/}
-          {myUser.userStatus === 0 ? '正常在线' : '账号异常'}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="用户创建时间：">
-          {myUser.createTime}
-        </Descriptions.Item>
-        <Descriptions.Item style={{ textAlign: 'center' }} label="用户更新时间：">
-          {myUser.updateTime}
         </Descriptions.Item>
       </Descriptions>
 
@@ -363,72 +344,72 @@ const UserInfo: React.FC = () => {
               },
             ]}
           />
-          <ProFormText
-            width="md"
-            name="id"
-            label="用户编号"
-            placeholder="修改修改后的密码"
-            initialValue={userId}
-            disabled
-          />
+          {/*<ProFormText*/}
+          {/*  width="md"*/}
+          {/*  name="id"*/}
+          {/*  label="用户编号"*/}
+          {/*  placeholder="修改修改后的密码"*/}
+          {/*  initialValue={userId}*/}
+          {/*  disabled*/}
+          {/*/>*/}
           <ProFormText
             width="md"
             name="userPassword"
             label="修改密码"
             placeholder="修改修改后的密码"
             initialValue={myUser.userPassword}
-            rules={[
-              {
-                required: true,
-                message: '请输入选择用户头像!',
-              },
-            ]}
+            // rules={[
+            //   {
+            //     required: true,
+            //     message: '请输入选择用户头像!',
+            //   },
+            // ]}
           />
-          <ProFormText
-            width="md"
-            name="phone"
-            label="修改手机号码"
-            placeholder="修改手机号码密码"
-            initialValue={myUser.phone}
-          />
-          <ProFormSelect
-            width="md"
-            name="gender"
-            label="修改性别"
-            placeholder="修改我的性别"
-            options={selectGender}
-            initialValue={myUser.gender}
-          />
-          <ProFormText
-            width="md"
-            name="email"
-            label="修改邮箱"
-            placeholder="修改修改后的邮箱"
-            initialValue={myUser.email}
-          />
-          <ProFormText
-            width="md"
-            name="userCode"
-            label="修改我的编码"
-            placeholder="输入修改后的编码"
-            initialValue={myUser.userCode}
-          />
-          <ProFormSelect
-            name="userAvatar"
-            fieldProps={{
-              size: 'large',
-            }}
-            label="修改头像"
-            options={selectAvatarUrl}
-            placeholder={'请选择用户头像 '}
-            initialValue={myUser.userAvatar}
-            rules={[
-              {
-                required: true,
-                message: '请输入选择用户头像!',
-              },
-            ]}
-          />
+          {/*<ProFormText*/}
+          {/*  width="md"*/}
+          {/*  name="phone"*/}
+          {/*  label="修改手机号码"*/}
+          {/*  placeholder="修改手机号码密码"*/}
+          {/*  initialValue={myUser.phone}*/}
+          {/*/>*/}
+          {/*<ProFormSelect*/}
+          {/*  width="md"*/}
+          {/*  name="gender"*/}
+          {/*  label="修改性别"*/}
+          {/*  placeholder="修改我的性别"*/}
+          {/*  options={selectGender}*/}
+          {/*  initialValue={myUser.gender}*/}
+          {/*/>*/}
+          {/*<ProFormText*/}
+          {/*  width="md"*/}
+          {/*  name="email"*/}
+          {/*  label="修改邮箱"*/}
+          {/*  placeholder="修改修改后的邮箱"*/}
+          {/*  initialValue={myUser.email}*/}
+          {/*/>*/}
+          {/*<ProFormText*/}
+          {/*  width="md"*/}
+          {/*  name="userCode"*/}
+          {/*  label="修改我的编码"*/}
+          {/*  placeholder="输入修改后的编码"*/}
+          {/*  initialValue={myUser.userCode}*/}
+          {/*/>*/}
+          {/*<ProFormSelect*/}
+          {/*  name="userAvatar"*/}
+          {/*  fieldProps={{*/}
+          {/*    size: 'large',*/}
+          {/*  }}*/}
+          {/*  label="修改头像"*/}
+          {/*  options={selectAvatarUrl}*/}
+          {/*  placeholder={'请选择用户头像 '}*/}
+          {/*  initialValue={myUser.userAvatar}*/}
+          {/*  rules={[*/}
+          {/*    {*/}
+          {/*      required: true,*/}
+          {/*      message: '请输入选择用户头像!',*/}
+          {/*    },*/}
+          {/*  ]}*/}
+          {/*/>*/}
         </ProForm.Group>
       </ModalForm>
     </>

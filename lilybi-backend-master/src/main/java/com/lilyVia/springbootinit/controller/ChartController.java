@@ -13,6 +13,7 @@ import com.lilyVia.springbootinit.manager.AIManager;
 import com.lilyVia.springbootinit.manager.RedissonManager;
 import com.lilyVia.springbootinit.model.dto.chart.ChartAddRequest;
 import com.lilyVia.springbootinit.model.dto.chart.ChartQueryRequest;
+import com.lilyVia.springbootinit.model.dto.chart.ChartUpdateRequest;
 import com.lilyVia.springbootinit.model.entity.Chart;
 import com.lilyVia.springbootinit.model.entity.ChartCoreData;
 import com.lilyVia.springbootinit.model.entity.User;
@@ -67,31 +68,9 @@ public class ChartController {
     @Resource
     private BiMqProducer biMqProducer;
 
-    /**
-     * 创建
-     *
-     * @param chartAddRequest
-     * @param request
-     * @return
-     */
-//    @PostMapping("/add")
-    public BaseResponse<Long> addChart(@Valid @NotNull @RequestBody ChartAddRequest chartAddRequest,@NotNull  HttpServletRequest request) {
-
-        Chart Chart = new Chart();
-        BeanUtils.copyProperties(chartAddRequest, Chart);
-
-        User loginUser = userService.getLoginUser(request);
-        Chart.setUserId(loginUser.getId());
-
-        boolean result = ChartService.save(Chart);
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
-        long newChartId = Chart.getId();
-        return ResultUtils.success(newChartId);
-    }
-
 
     @PostMapping("/gen")
-    public BaseResponse<BiResponse> genChartByAi(@RequestPart("file") MultipartFile multipartFile,@Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) {
+    public BaseResponse<BiResponse> genChartByAi(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) {
 
         /**
          * 用户登录校验
@@ -125,7 +104,7 @@ public class ChartController {
         try {
             ThrowUtils.throwIf(StringUtils.isBlank(analyse), ErrorCode.AI_GEN_ERROR, "ai生成结论异常");
             ThrowUtils.throwIf(StringUtils.isBlank(code), ErrorCode.AI_GEN_ERROR, "ai生成代码异常");
-        }catch (BusinessException e){
+        } catch (BusinessException e) {
             return ResultUtils.error(ErrorCode.AI_GEN_ERROR);
         }
 
@@ -149,7 +128,7 @@ public class ChartController {
         coreData.setChartId(chartId);
         boolean coreSave = chartCoreDataService.save(coreData);
         // todo 保存失败
-        ThrowUtils.throwIf(!result||!coreSave, ErrorCode.OPERATION_ERROR, "图表信息保存失败");
+        ThrowUtils.throwIf(!result || !coreSave, ErrorCode.OPERATION_ERROR, "图表信息保存失败");
         /**
          * 返回生成图表信息
          */
@@ -162,7 +141,7 @@ public class ChartController {
 
 
     @PostMapping("/gen/async")
-    public BaseResponse<BiResponse> genChartByAiAsync(@RequestPart("file") MultipartFile multipartFile,@Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) throws Exception {
+    public BaseResponse<BiResponse> genChartByAiAsync(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) throws Exception {
 
         /**
          * 用户登录校验
@@ -254,8 +233,9 @@ public class ChartController {
 
 
     // todo 参数非空非空格校验失败 后端添加字段查询用户总共调接口次数
+
     @PostMapping("/gen/async/mq")
-    public BaseResponse<BiResponse> genChartByAiMQ(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest,@NotNull  HttpServletRequest request) {
+    public BaseResponse<BiResponse> genChartByAiMQ(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) {
 
         /**
          * 用户登录校验
@@ -305,12 +285,36 @@ public class ChartController {
         return ResultUtils.success(biResponse);
     }
 
-    /**
-     * 处理图表异常状态通用方法
-     * @param chartId 图表id
-     * @param message 异常错误信息
-     */
 
+    /**
+     * 分页获取当前用户创建的资源列表
+     *
+     * @param ChartQueryRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/my/list/page/vo")
+    public BaseResponse<Page<ChartVO>> listMyChartVOByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
+                                                           @NotNull HttpServletRequest request) {
+        // 校验是否登录
+        User loginUser = userService.getLoginUser(request);
+
+        ChartQueryRequest.setUserId(loginUser.getId());
+        long current = ChartQueryRequest.getCurrent();
+        long size = ChartQueryRequest.getPageSize();
+        // 限制爬虫
+        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+        Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
+                getQueryWrapper(ChartQueryRequest));
+        // 从chartCoreData中获取数据传回chart实体类中
+        for (Chart chart : ChartPage.getRecords()) {
+            Long chartId = chart.getId();
+            ChartCoreData coreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+            chart.setGenChart(coreData.getGenChart());
+            chart.setChartData(coreData.getChartData());
+        }
+        return ResultUtils.success(ChartService.getChartVOPage(ChartPage));
+    }
 
     /**
      * 删除
@@ -320,7 +324,7 @@ public class ChartController {
      * @return
      */
     @PostMapping("/delete")
-    public BaseResponse<Boolean> deleteChart(@Valid @NotNull @RequestBody DeleteRequest deleteRequest,@NotNull HttpServletRequest request) throws RuntimeException{
+    public BaseResponse<Boolean> deleteChart(@Valid @NotNull @RequestBody DeleteRequest deleteRequest, @NotNull HttpServletRequest request) throws RuntimeException {
 
         User user = userService.getLoginUser(request);
         long id = deleteRequest.getId();
@@ -334,6 +338,32 @@ public class ChartController {
         boolean b = ChartService.removeById(id);
         chartCoreDataService.removeById(id);
         return ResultUtils.success(b);
+    }
+
+    // 增
+
+    /**
+     * 创建
+     *
+     * @param chartUpdateRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/update")
+    @Deprecated
+    public BaseResponse<Long> updateChart(@Valid @NotNull @RequestBody ChartUpdateRequest chartUpdateRequest, @NotNull HttpServletRequest request) {
+
+        User loginUser = userService.getLoginUser(request);
+
+        Chart Chart = new Chart();
+        BeanUtils.copyProperties(chartUpdateRequest, Chart);
+
+        Chart.setUserId(loginUser.getId());
+
+        boolean result = ChartService.save(Chart);
+        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        long newChartId = Chart.getId();
+        return ResultUtils.success(newChartId);
     }
 
 
@@ -361,34 +391,6 @@ public class ChartController {
     }
 
     /**
-     * 分页获取不限本用户列表（仅管理员）
-     *
-     * @param ChartQueryRequest
-     * @return
-     */
-    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    @PostMapping("/list/page")
-    public BaseResponse<Page<Chart>> listChartByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest, @NotNull HttpServletRequest request) {
-
-        // 校验是否登录
-       userService.getLoginUser(request);
-
-        long current = ChartQueryRequest.getCurrent();
-        long size = ChartQueryRequest.getPageSize();
-        Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
-                getQueryWrapper(ChartQueryRequest));
-        // 从chartCoreData中获取数据传回chart实体类中
-        for (Chart chart : ChartPage.getRecords()) {
-            Long chartId = chart.getId();
-            ChartCoreData chartCoreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
-            // 存入chart中
-            chart.setGenChart(chartCoreData.getGenChart());
-            chart.setChartData(chartCoreData.getChartData());
-        }
-        return ResultUtils.success(ChartPage);
-    }
-
-    /**
      * 分页获取列表（封装类）
      *
      * @param ChartQueryRequest
@@ -399,39 +401,13 @@ public class ChartController {
     public BaseResponse<Page<ChartVO>> listChartVOByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
                                                          @NotNull HttpServletRequest request) {
         // 校验是否登录
-        User loginUser = userService.getLoginUser(request);
-        long current = ChartQueryRequest.getCurrent();
-        long size =  ChartQueryRequest.getPageSize();
-        // 限制爬虫
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
-                getQueryWrapper(ChartQueryRequest));
-        // 从chartCoreData中获取数据传回chart实体类中
-            for (Chart chart : ChartPage.getRecords()) {
-                Long chartId = chart.getId();
-                ChartCoreData coreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
-                chart.setGenChart(coreData.getGenChart());
-                chart.setChartData(coreData.getChartData());
-            }
-        return ResultUtils.success(ChartService.getChartVOPage(ChartPage));
-    }
+        userService.getLoginUser(request);
 
-    /**
-     * 分页获取当前用户创建的资源列表
-     *
-     * @param ChartQueryRequest
-     * @param request
-     * @return
-     */
-    @PostMapping("/my/list/page/vo")
-    public BaseResponse<Page<ChartVO>> listMyChartVOByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
-                                                           @NotNull HttpServletRequest request) {
-        // 校验是否登录
-        User loginUser = userService.getLoginUser(request);
+        // 先查询redis
 
-        ChartQueryRequest.setUserId(loginUser.getId());        
+        // redis中没有，就查询数据库
         long current = ChartQueryRequest.getCurrent();
-        long size =  ChartQueryRequest.getPageSize();
+        long size = ChartQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
@@ -443,6 +419,8 @@ public class ChartController {
             chart.setGenChart(coreData.getGenChart());
             chart.setChartData(coreData.getChartData());
         }
+
+        // 数据库中查询结束之后存入redis里
         return ResultUtils.success(ChartService.getChartVOPage(ChartPage));
     }
 
@@ -455,11 +433,11 @@ public class ChartController {
      */
     @PostMapping("/my/list/page")
     public BaseResponse<Page<Chart>> listMyChartByPage(@NotNull @Valid @RequestBody ChartQueryRequest ChartQueryRequest,
-                                                       @NotNull  HttpServletRequest request) {
+                                                       @NotNull HttpServletRequest request) {
         User loginUser = userService.getLoginUser(request);
         ChartQueryRequest.setUserId(loginUser.getId());
         long current = ChartQueryRequest.getCurrent();
-        long size =  ChartQueryRequest.getPageSize();
+        long size = ChartQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
@@ -474,7 +452,12 @@ public class ChartController {
         return ResultUtils.success(ChartPage);
     }
 
-
+    /**
+     * queryWrapper构造查询chart
+     *
+     * @param
+     * @return
+     */
     private QueryWrapper<Chart> getQueryWrapper(ChartQueryRequest ChartQueryRequest) {
         QueryWrapper<Chart> queryWrapper = new QueryWrapper<>();
         if (ChartQueryRequest == null) {
@@ -500,7 +483,8 @@ public class ChartController {
     }
 
     /**
-     *  queryWrapper构造根据chartId查询chart核心数据
+     * queryWrapper构造根据chartId查询chart核心数据
+     *
      * @param chartId
      * @return
      */
@@ -513,6 +497,57 @@ public class ChartController {
         return queryCoreWrapper;
     }
 
+    /**
+     * 创建
+     *
+     * @param chartAddRequest
+     * @param request
+     * @return
+     */
+//    @PostMapping("/add")
+    @Deprecated
+    public BaseResponse<Long> addChart(@Valid @NotNull @RequestBody ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) {
+
+        Chart Chart = new Chart();
+        BeanUtils.copyProperties(chartAddRequest, Chart);
+
+        User loginUser = userService.getLoginUser(request);
+        Chart.setUserId(loginUser.getId());
+
+        boolean result = ChartService.save(Chart);
+        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        long newChartId = Chart.getId();
+        return ResultUtils.success(newChartId);
+    }
+
+    /**
+     * 分页获取不限本用户列表（仅管理员）
+     *
+     * @param ChartQueryRequest
+     * @return
+     */
+    @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
+//    @PostMapping("/list/page")
+    @Deprecated
+    public BaseResponse<Page<Chart>> listChartByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest, @NotNull HttpServletRequest request) {
+
+        // 校验是否登录
+        userService.getLoginUser(request);
+
+        long current = ChartQueryRequest.getCurrent();
+        long size = ChartQueryRequest.getPageSize();
+        Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
+                getQueryWrapper(ChartQueryRequest));
+        // 从chartCoreData中获取数据传回chart实体类中
+        for (Chart chart : ChartPage.getRecords()) {
+            Long chartId = chart.getId();
+            ChartCoreData chartCoreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+            // 存入chart中
+            chart.setGenChart(chartCoreData.getGenChart());
+            chart.setChartData(chartCoreData.getChartData());
+        }
+        return ResultUtils.success(ChartPage);
+    }
 
 
 }

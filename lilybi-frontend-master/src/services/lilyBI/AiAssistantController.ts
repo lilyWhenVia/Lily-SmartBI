@@ -17,7 +17,7 @@ export async function addAiAssistantUsingPOST(
   });
 }
 
-/** AI 对话 POST /api/aiAssistant/chat */
+/** （调用ai发送聊天对话）AI 对话 POST /api/aiAssistant/chat */
 export async function aiAssistantUsingPOST(
   body: API.GenChatByAiRequest,
   options?: { [key: string]: any },

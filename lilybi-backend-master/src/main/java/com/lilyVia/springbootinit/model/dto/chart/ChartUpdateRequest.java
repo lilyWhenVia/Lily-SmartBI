@@ -29,12 +29,7 @@ public class ChartUpdateRequest implements Serializable {
     @Length(max = 32)
     private String name;
 
-    /**
-     * 生成图表的类型
-     */
-    @NotBlank
-    @NotEmpty
-    private String chartType;
+
     /**
      * 目标图表数据
      */

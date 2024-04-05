@@ -12,22 +12,15 @@ import logo from '../../public/logo.png';
 import registerImage from '../../public/registerImage.jpg';
 
 export const IMAGES = [
-  import('../../public/catImage/3.jpg'),
-  import('../../public/catImage/1.jpg'),
-  import('../../public/catImage/2.jpg'),
-  import('../../public/catImage/4.jpg'),
-  import('../../public/catImage/5.jpg'),
-  import('../../public/catImage/6.jpg'),
-  import('../../public/catImage/7.jpg'),
-  import('../../public/catImage/8.jpg'),
-  import('../../public/catImage/9.jpg'),
-  import('../../public/catImage/10.jpg'),
-  import('../../public/catImage/image1.jpg'),
-  import('../../public/catImage/image2.jpg'),
-  import('../../public/catImage/image3.jpg'),
-  import('../../public/catImage/image4.jpg'),
-  import('../../public/catImage/image5.jpg'),
-  import('../../public/catImage/image6.jpg'),
+  // import('../../public/catImage/3.jpg'),
+  // import('../../public/catImage/1.jpg'),
+  // import('../../public/catImage/2.jpg'),
+  // import('../../public/catImage/4.jpg'),
+  // import('../../public/catImage/5.jpg'),
+  // import('../../public/catImage/6.jpg'),
+  // import('../../public/catImage/7.jpg'),
+  // import('../../public/catImage/8.jpg'),
+  import('../../public/catImage/logo.jpg')
 ];
 
 export const SYSTEM_LOGO = logo;
