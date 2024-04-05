@@ -253,23 +253,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
-          <line>418</line>
-          <properties class="com.lilyVia.springbootinit.controller.ChartController" method="listMyChartVOByPage">
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
-          <line>439</line>
+          <line>445</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
-          <line>433</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
