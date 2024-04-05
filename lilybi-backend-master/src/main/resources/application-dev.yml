@@ -1,0 +1,73 @@
+# 本地dev配置文件
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  # session 配置
+  session:
+    # todo 取消注释开启分布式 session（须先配置 Redis）
+    # store-type: redis
+    # 30 天过期
+    timeout: 2592000
+  # 数据库配置
+  # todo 需替换配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/easyBI?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: self
+    password: 123456
+  # Redis 配置
+  # todo 需替换配置，然后取消注释
+  redis:
+    database: 1
+    host: 192.168.70.129
+    port: 6379
+    timeout: 5000
+#    # redisson
+#    redisson:
+#      address: redis://192.169.70.129:6379
+#      password:
+#      timeout: 5000
+#      database: 0
+# rabbitmq配置
+  rabbitmq:
+    port: 5672
+    host: localhost
+    username: guest
+    password: guest
+    listener:
+      simple:
+        # ACK模式(默认为auto)
+        acknowledge-mode: auto
+        # 开启重试
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 5000
+  # Elasticsearch 配置
+  # todo 需替换配置，然后取消注释
+#  elasticsearch:
+#    uris: http://localhost:9200
+#    username: root
+#    password: 123456
+  # 文件上传
+  servlet:
+    multipart:
+      # 大小限制
+      max-file-size: 100MB
+server:
+  address: 0.0.0.0
+  port: 8101
+  servlet:
+    context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
+# ai接口相关
+  # 讯飞星火配置
+xunfei:
+  client:
+    appid: caa08a16
+    apiSecret: M2U2NWM3ODM0MDUzNmU0MTk5MzU4YjYx
+    apiKey: 2361b34bd4db0a07e136d695b88c9b3e

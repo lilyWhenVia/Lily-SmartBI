@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08f3276b-6911-4f62-b8fe-9f86473dba36" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://E:/maven/apache-maven-3.8.7/mvn_resp/com/baomidou/mybatis-plus-extension/3.5.2/mybatis-plus-extension-3.5.2.jar!/com/baomidou/mybatisplus/extension/service/impl/ServiceImpl.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://E:/maven/apache-maven-3.8.7/mvn_resp/com/rabbitmq/amqp-client/5.20.0/amqp-client-5.20.0-sources.jar!/com/rabbitmq/client/Channel.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="showDialogWithAdvancedSettings" value="true" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\maven\apache-maven-3.8.7\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="jdk-1.8" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2dXlb5kZoifcBVaS6o2lipgDFBU" />
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/easyBI/lilybi-backend-master&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;67400c1ef93e7a0e741dfff1c1bc5ca0&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources" />
+      <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto\chart" />
+      <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit" />
+      <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources\mapper" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.yupi.springbootinit.service" />
+      <recent name="com.yupi.springbootinit.mapper" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.lilyVia.springbootinit.exception" />
+      <recent name="com.yupi.springbootinit.rabbitMq" />
+      <recent name="com.yupi.springbootinit.config" />
+      <recent name="com.yupi.springbootinit.manager" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yupi.springbootinit.mq" />
+      <recent name="com.yupi.springbootinit.controller" />
+      <recent name="com.yupi.springbootinit.model.vo" />
+      <recent name="com.yupi.springbootinit.service.impl" />
+      <recent name="com.yupi.springbootinit.service" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Database Script.chart.sql">
+    <configuration name="RoutingDLXConsumer1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXConsumer1" />
+      <module name="easyBI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yupi.springbootinit.mq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoutingDLXConsumer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXConsumer2" />
+      <module name="easyBI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yupi.springbootinit.mq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoutingDLXProducer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXProducer" />
+      <module name="easyBI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yupi.springbootinit.mq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chart.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="4f5573f8-5d9e-4869-86bf-c0ffb359874e/schema/easybi/table/chart.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="BiInitMainTest.messageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="easyBI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lilyVia.springbootinit.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yupi.springbootinit.rabbitMq" />
+      <option name="MAIN_CLASS_NAME" value="com.lilyVia.springbootinit.rabbitMq.BiInitMainTest" />
+      <option name="METHOD_NAME" value="messageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="easyBI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lilybi-backend-master" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="easyBI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.chart.sql" />
+        <item itemvalue="Application.RoutingDLXConsumer1" />
+        <item itemvalue="Application.RoutingDLXProducer" />
+        <item itemvalue="Application.RoutingDLXConsumer2" />
+        <item itemvalue="JUnit.BiInitMainTest.messageTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08f3276b-6911-4f62-b8fe-9f86473dba36" name="Changes" comment="" />
+      <created>1710162379990</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710162379990</updated>
+      <workItem from="1710162384644" duration="1907000" />
+      <workItem from="1710210755214" duration="331000" />
+      <workItem from="1710211200139" duration="2039000" />
+      <workItem from="1710213261005" duration="8448000" />
+      <workItem from="1710419642129" duration="9935000" />
+      <workItem from="1710477323344" duration="3655000" />
+      <workItem from="1710938452117" duration="1945000" />
+      <workItem from="1710940649611" duration="12399000" />
+      <workItem from="1711008100514" duration="17523000" />
+      <workItem from="1711154186840" duration="30702000" />
+      <workItem from="1711331010604" duration="8315000" />
+      <workItem from="1711594160253" duration="16080000" />
+      <workItem from="1711678807276" duration="17918000" />
+      <workItem from="1711804151285" duration="15140000" />
+      <workItem from="1711940495851" duration="6346000" />
+      <workItem from="1711958970287" duration="20260000" />
+      <workItem from="1712021999293" duration="2068000" />
+      <workItem from="1712046212009" duration="5414000" />
+      <workItem from="1712130569557" duration="4907000" />
+      <workItem from="1712138545571" duration="16013000" />
+      <workItem from="1712156929343" duration="2780000" />
+      <workItem from="1712161279916" duration="1775000" />
+      <workItem from="1712197107107" duration="9197000" />
+      <workItem from="1712235976881" duration="862000" />
+      <workItem from="1712286034324" duration="3377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

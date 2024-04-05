@@ -1,0 +1,89 @@
+{
+  "groups": [
+    {
+      "name": "spring.redis",
+      "type": "com.lilyVia.springbootinit.config.redissonConfig",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+    },
+    {
+      "name": "xunfei.client",
+      "type": "com.lilyVia.springbootinit.config.AiConfig",
+      "sourceType": "com.lilyVia.springbootinit.config.AiConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cos.client.accessKey",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.accessKey."
+    },
+    {
+      "name": "cos.client.bucket",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.bucket."
+    },
+    {
+      "name": "cos.client.region",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.region."
+    },
+    {
+      "name": "cos.client.secretKey",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.secretKey."
+    },
+    {
+      "name": "spring.redis.database",
+      "type": "java.lang.Integer",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.redis.host",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+    },
+    {
+      "name": "spring.redis.password",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+    },
+    {
+      "name": "spring.redis.port",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+    },
+    {
+      "name": "spring.redis.timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "wx.open.appId",
+      "type": "java.lang.String",
+      "description": "Description for wx.open.appId."
+    },
+    {
+      "name": "wx.open.appSecret",
+      "type": "java.lang.String",
+      "description": "Description for wx.open.appSecret."
+    },
+    {
+      "name": "xunfei.client.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.AiConfig"
+    },
+    {
+      "name": "xunfei.client.api-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.AiConfig"
+    },
+    {
+      "name": "xunfei.client.appid",
+      "type": "java.lang.String",
+      "sourceType": "com.lilyVia.springbootinit.config.AiConfig"
+    }
+  ],
+  "hints": []
+}

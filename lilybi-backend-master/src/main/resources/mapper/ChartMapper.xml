@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lilyVia.springbootinit.mapper.ChartMapper">
+
+    <resultMap id="BaseResultMap" type="com.lilyVia.springbootinit.model.entity.Chart">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="goal" column="goal" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="chartData" column="chartData" jdbcType="VARCHAR"/>
+            <result property="chartType" column="chartType" jdbcType="VARCHAR"/>
+            <result property="genChart" column="genChart" jdbcType="VARCHAR"/>
+            <result property="genResult" column="genResult" jdbcType="VARCHAR"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+            <result property="chartStatus" column="chartStatus" jdbcType="TINYINT"/>
+            <result property="executorMessage" column="executorMessage" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,`name`,chartStatus,executorMessage,genResult,goal,chartData,
+        chartType,genChart,userId,
+        createTime,updateTime,isDelete
+    </sql>
+</mapper>

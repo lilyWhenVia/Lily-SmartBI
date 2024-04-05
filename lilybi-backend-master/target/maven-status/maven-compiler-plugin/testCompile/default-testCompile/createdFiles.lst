@@ -1,0 +1,7 @@
+com\lilyVia\springbootinit\MainApplicationTests.class
+com\lilyVia\springbootinit\utils\EasyExcelTest.class
+com\lilyVia\springbootinit\manager\RedissonManagerTest.class
+com\lilyVia\springbootinit\rabbitMq\BiInitMainTest.class
+com\lilyVia\springbootinit\service\UserServiceTest.class
+com\lilyVia\springbootinit\exception\ThrowUtilsTest.class
+com\lilyVia\springbootinit\manager\AIManagerTest.class
