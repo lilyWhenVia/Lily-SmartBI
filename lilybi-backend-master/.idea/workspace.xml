@@ -85,6 +85,7 @@
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\resources\mapper" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources\mapper" />
     </key>
@@ -92,10 +93,12 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lilyVia.springbootinit.service" />
       <recent name="com.yupi.springbootinit.service" />
       <recent name="com.yupi.springbootinit.mapper" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.lilyVia.springbootinit.service" />
       <recent name="com.lilyVia.springbootinit.exception" />
       <recent name="com.yupi.springbootinit.rabbitMq" />
       <recent name="com.yupi.springbootinit.config" />
@@ -116,7 +119,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Database Script.chart.sql">
+  <component name="RunManager" selected="Spring Boot.MainApplication">
     <configuration name="RoutingDLXConsumer1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXConsumer1" />
       <module name="easyBI" />
@@ -161,17 +164,17 @@
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="BiInitMainTest.messageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="easyBI" />
+    <configuration name="ChartCoreDataServiceTest.chartCoreDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lilybi-backend-master" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lilyVia.springbootinit.controller.*" />
+          <option name="PATTERN" value="com.lilyVia.springbootinit.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.yupi.springbootinit.rabbitMq" />
-      <option name="MAIN_CLASS_NAME" value="com.lilyVia.springbootinit.rabbitMq.BiInitMainTest" />
-      <option name="METHOD_NAME" value="messageTest" />
+      <option name="PACKAGE_NAME" value="com.lilyVia.springbootinit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.lilyVia.springbootinit.service.ChartCoreDataServiceTest" />
+      <option name="METHOD_NAME" value="chartCoreDataTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,7 +196,9 @@
     </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
-      <module name="easyBI" />
+      <option name="ALTERNATIVE_JRE_PATH" value="E:/Java/java-18.0.2.1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="lilybi-backend-master" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -201,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ChartCoreDataServiceTest.chartCoreDataTest" />
         <item itemvalue="Database Script.chart.sql" />
         <item itemvalue="Application.RoutingDLXConsumer1" />
         <item itemvalue="Application.RoutingDLXProducer" />
         <item itemvalue="Application.RoutingDLXConsumer2" />
-        <item itemvalue="JUnit.BiInitMainTest.messageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -244,6 +249,30 @@
       <workItem from="1712286034324" duration="3377000" />
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
+          <line>418</line>
+          <properties class="com.lilyVia.springbootinit.controller.ChartController" method="listMyChartVOByPage">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
+          <line>439</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
+          <line>433</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,7 @@
 package com.lilyVia.springbootinit.model.vo;
 
 import com.lilyVia.springbootinit.model.entity.Chart;
+import com.lilyVia.springbootinit.model.entity.ChartCoreData;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
@@ -48,9 +49,14 @@ public class ChartVO implements Serializable {
     private String genChart;
 
     /**
+     * 生成的图表
+     */
+    private String genResult;
+
+    /**
      * 创建用户 id
      */
-    private UserVO user;
+    private UserVO userVO;
 
     /**
      * 创建时间
@@ -61,6 +67,7 @@ public class ChartVO implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
     /**
      * 包装类转对象
      *
@@ -90,4 +97,5 @@ public class ChartVO implements Serializable {
         BeanUtils.copyProperties(Chart, ChartVO);
         return ChartVO;
     }
+
 }

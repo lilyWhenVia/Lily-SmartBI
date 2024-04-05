@@ -9,18 +9,24 @@ import com.lilyVia.springbootinit.constant.CommonConstant;
 import com.lilyVia.springbootinit.exception.BusinessException;
 import com.lilyVia.springbootinit.mapper.ChartMapper;
 import com.lilyVia.springbootinit.model.dto.chart.ChartQueryRequest;
-import com.lilyVia.springbootinit.model.entity.*;
+import com.lilyVia.springbootinit.model.entity.Chart;
+import com.lilyVia.springbootinit.model.entity.ChartCoreData;
+import com.lilyVia.springbootinit.model.entity.User;
 import com.lilyVia.springbootinit.model.vo.ChartVO;
+import com.lilyVia.springbootinit.model.vo.UserVO;
+import com.lilyVia.springbootinit.service.ChartCoreDataService;
 import com.lilyVia.springbootinit.service.ChartService;
 import com.lilyVia.springbootinit.service.UserService;
 import com.lilyVia.springbootinit.utils.SqlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 图表服务实现
@@ -28,6 +34,9 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 @Slf4j
 public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart> implements ChartService {
+
+    @Resource
+    private ChartCoreDataService chartCoreDataService;
 
     @Resource
     private UserService userService;
@@ -65,16 +74,26 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart> implements
         return queryWrapper;
     }
 
+    /**
+     * 返回chartVO分页查询类
+     * @param chartPage
+     * @return
+     */
     @Override
-    public Page<ChartVO> getChartVOPage(Page<Chart> chartPage, HttpServletRequest request) {
-        return null;
+    public Page<ChartVO> getChartVOPage(Page<Chart> chartPage) {
+        List<Chart> charts = chartPage.getRecords();
+        List<ChartVO> chartVOS = new ArrayList<>();
+        for (Chart chart : charts) {
+            ChartVO chartVO = this.ChartToChartVO(chart);
+            chartVOS.add(chartVO);
+        }
+        Page<ChartVO> voPage = new Page<>();
+        BeanUtils.copyProperties(chartPage, voPage);
+        voPage.setRecords(chartVOS);
+        return voPage;
     }
 
 
-    @Override
-    public ChartVO getChartVO(Chart chart, HttpServletRequest request) {
-        return null;
-    }
 
     /**
      * @description: 更新数据库状态异常
@@ -114,16 +133,36 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart> implements
 
     @Override
     public void saveChartResult(long chartId, String code, String analyse) {
-        // 生成图表代码存储
-        Chart Chart = new Chart();
-        Chart.setGenChart(code);
-        Chart.setGenResult(analyse);
+        // 生成图表代码存储至图表核心数据类
+        ChartCoreData coreData = new ChartCoreData();
+        coreData.setGenChart(code);
+        coreData.setChartId(chartId);
+        boolean coreSave = chartCoreDataService.save(coreData);
         // 生成成功更改状态
-        Chart.setChartStatus(ChartConstant.SUCCEED);
-        boolean succeed = save(Chart);
+        Chart chart = new Chart();
+        chart.setChartStatus(ChartConstant.SUCCEED);
+        boolean succeed = this.save(chart);
         if (!succeed) {
             handleGenChartError(chartId, "更新图表succeed状态失败");
         }
+    }
+
+    /**
+     *  获得chart包装类（包含userVo）
+     * @param chart
+     * @return
+     */
+    @Override
+    public ChartVO ChartToChartVO(Chart chart) {
+        if (chart == null) {
+            return null;
+        }
+        ChartVO chartVO = new ChartVO();
+        User user = userService.getById(chart.getUserId());
+        UserVO userVO = userService.getUserVO(user);
+        BeanUtils.copyProperties(chart, chartVO);
+        chartVO.setUserVO(userVO);
+        return chartVO;
     }
 }
 

@@ -31,8 +31,8 @@ spring:
         # 开启重试
         retry:
           enabled: true
-          max-attempts: 5
-          initial-interval: 5000
+          max-attempts: 3
+          initial-interval: 3000
 mybatis-plus:
   configuration:
     # 生产环境关闭日志
@@ -43,3 +43,11 @@ knife4j:
     enable: true
     username: root
     password: 123456
+
+  # ai接口相关
+  # 讯飞星火配置
+xunfei:
+  client:
+    appid: caa08a16
+    apiSecret: M2U2NWM3ODM0MDUzNmU0MTk5MzU4YjYx
+    apiKey: 2361b34bd4db0a07e136d695b88c9b3e

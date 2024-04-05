@@ -831,65 +831,70 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="242" parent="224" name="user">
+    <table id="242" parent="224" name="chart_core_data">
+      <Comment>图表核心数据表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="243" parent="224" name="user">
       <Comment>用户</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="243" parent="241" name="id">
-      <AutoIncrement>1774831673398063107</AutoIncrement>
+    <column id="244" parent="241" name="id">
+      <AutoIncrement>1775511172691365891</AutoIncrement>
       <Comment>id</Comment>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="244" parent="241" name="chartStatus">
+    <column id="245" parent="241" name="chartStatus">
       <Comment>图表处理状态</Comment>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="245" parent="241" name="executorMessage">
+    <column id="246" parent="241" name="executorMessage">
       <Comment>图表处理状态信息</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="246" parent="241" name="goal">
+    <column id="247" parent="241" name="goal">
       <Comment>分析目标</Comment>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="247" parent="241" name="chartData">
+    <column id="248" parent="241" name="chartData">
       <Comment>目标图表数据</Comment>
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="248" parent="241" name="chartType">
+    <column id="249" parent="241" name="chartType">
       <Comment>生成图表的类型</Comment>
       <DataType>varchar(128)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="249" parent="241" name="genChart">
+    <column id="250" parent="241" name="genChart">
       <Comment>生成的图表</Comment>
       <DataType>text|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="250" parent="241" name="userId">
+    <column id="251" parent="241" name="userId">
       <Comment>创建用户 id</Comment>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="251" parent="241" name="createTime">
+    <column id="252" parent="241" name="createTime">
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="252" parent="241" name="updateTime">
+    <column id="253" parent="241" name="updateTime">
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
@@ -897,87 +902,129 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
       <Position>10</Position>
     </column>
-    <column id="253" parent="241" name="isDelete">
+    <column id="254" parent="241" name="isDelete">
       <Comment>是否删除</Comment>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
-    <column id="254" parent="241" name="name">
+    <column id="255" parent="241" name="name">
       <Comment>图表名称</Comment>
       <DataType>varchar(128)|0s</DataType>
       <Position>12</Position>
     </column>
-    <column id="255" parent="241" name="genResult">
+    <column id="256" parent="241" name="genResult">
       <Comment>分析结论</Comment>
       <DataType>text|0s</DataType>
       <Position>13</Position>
     </column>
-    <index id="256" parent="241" name="PRIMARY">
+    <index id="257" parent="241" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="257" parent="241" name="PRIMARY">
+    <key id="258" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="258" parent="242" name="id">
-      <AutoIncrement>1770843327881547778</AutoIncrement>
+    <column id="259" parent="242" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <Comment>id</Comment>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="259" parent="242" name="userAccount">
+    <column id="260" parent="242" name="chartId">
+      <Comment>图表信息表的id</Comment>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="261" parent="242" name="genChart">
+      <Comment>生成的图表</Comment>
+      <DataType>text|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="262" parent="242" name="chartData">
+      <Comment>目标图表数据</Comment>
+      <DataType>text|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="263" parent="242" name="chart_core_data_ibfk_1">
+      <ColNames>chartId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>chart</RefTableName>
+    </foreign-key>
+    <index id="264" parent="242" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="265" parent="242" name="chart_id">
+      <ColNames>chartId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="266" parent="242" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="267" parent="243" name="id">
+      <AutoIncrement>1775508948422594563</AutoIncrement>
+      <Comment>id</Comment>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="268" parent="243" name="userAccount">
       <Comment>账号</Comment>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="260" parent="242" name="userPassword">
+    <column id="269" parent="243" name="userPassword">
       <Comment>密码</Comment>
       <DataType>varchar(512)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="261" parent="242" name="unionId">
+    <column id="270" parent="243" name="unionId">
       <Comment>微信开放平台id</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="262" parent="242" name="mpOpenId">
+    <column id="271" parent="243" name="mpOpenId">
       <Comment>公众号openId</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="263" parent="242" name="userName">
+    <column id="272" parent="243" name="userName">
       <Comment>用户昵称</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="264" parent="242" name="userAvatar">
+    <column id="273" parent="243" name="userAvatar">
       <Comment>用户头像</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="265" parent="242" name="userRole">
+    <column id="274" parent="243" name="userRole">
       <Comment>用户角色：user/admin</Comment>
       <DataType>varchar(256)|0s</DataType>
       <DefaultExpression>&apos;user&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="266" parent="242" name="createTime">
+    <column id="275" parent="243" name="createTime">
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="267" parent="242" name="updateTime">
+    <column id="276" parent="243" name="updateTime">
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
@@ -985,23 +1032,23 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
       <Position>10</Position>
     </column>
-    <column id="268" parent="242" name="isDelete">
+    <column id="277" parent="243" name="isDelete">
       <Comment>是否删除</Comment>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
-    <index id="269" parent="242" name="PRIMARY">
+    <index id="278" parent="243" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="270" parent="242" name="idx_unionId">
+    <index id="279" parent="243" name="idx_unionId">
       <ColNames>unionId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="271" parent="242" name="PRIMARY">
+    <key id="280" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

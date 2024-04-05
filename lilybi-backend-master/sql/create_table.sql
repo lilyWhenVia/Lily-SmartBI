@@ -40,3 +40,18 @@ create table if not exists chart
     isDelete   tinyint  default 0                 not null comment '是否删除'
 ) comment '图表信息表' collate = utf8mb4_unicode_ci;
 
+-- 图表信息关联表
+create table chart_data
+(
+    id        bigint auto_increment comment 'id'
+        primary key,
+    chartId   bigint not null comment '图表信息表的id',
+    genChart  text   null comment '生成的图表',
+    chartData text   null comment '目标图表数据',
+    constraint chart_data_ibfk_1
+        foreign key (chartId) references chart (id)
+)
+    comment '图表核心数据表' collate = utf8mb4_unicode_ci;
+
+create index chart_id
+    on chart_data (chartId);

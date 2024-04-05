@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class GlobalExceptionHandler {
 
+    // 捕获所有BusinessException  Exception
     @ExceptionHandler({BusinessException.class, Exception.class})
     public BaseResponse<?> businessExceptionHandler(BusinessException e) {
         log.error("BusinessException", e);
@@ -34,5 +35,4 @@ public class GlobalExceptionHandler {
         return ResultUtils.error(ErrorCode.PARAMS_ERROR, "参数校验异常：" + e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
 
     }
-    // 捕获所有Exception
 }

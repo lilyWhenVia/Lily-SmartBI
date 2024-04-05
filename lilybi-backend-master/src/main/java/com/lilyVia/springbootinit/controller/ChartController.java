@@ -14,9 +14,11 @@ import com.lilyVia.springbootinit.manager.RedissonManager;
 import com.lilyVia.springbootinit.model.dto.chart.ChartAddRequest;
 import com.lilyVia.springbootinit.model.dto.chart.ChartQueryRequest;
 import com.lilyVia.springbootinit.model.entity.Chart;
+import com.lilyVia.springbootinit.model.entity.ChartCoreData;
 import com.lilyVia.springbootinit.model.entity.User;
 import com.lilyVia.springbootinit.model.vo.ChartVO;
 import com.lilyVia.springbootinit.rabbitMq.BiMqProducer;
+import com.lilyVia.springbootinit.service.ChartCoreDataService;
 import com.lilyVia.springbootinit.service.ChartService;
 import com.lilyVia.springbootinit.service.UserService;
 import com.lilyVia.springbootinit.utils.FileUtils;
@@ -25,13 +27,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -46,6 +48,9 @@ public class ChartController {
 
     @Resource
     private ChartService ChartService;
+
+    @Resource
+    private ChartCoreDataService chartCoreDataService;
 
     @Resource
     private UserService userService;
@@ -69,7 +74,7 @@ public class ChartController {
      * @param request
      * @return
      */
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public BaseResponse<Long> addChart(@Valid @NotNull @RequestBody ChartAddRequest chartAddRequest,@NotNull  HttpServletRequest request) {
 
         Chart Chart = new Chart();
@@ -117,8 +122,12 @@ public class ChartController {
         String code = splits[0].trim();
         String analyse = splits[1].trim();
         // todo ai生成结果校验
-        ThrowUtils.throwIf(StringUtils.isBlank(code), ErrorCode.AI_GEN_ERROR, "ai生成代码异常");
-        ThrowUtils.throwIf(StringUtils.isBlank(analyse), ErrorCode.AI_GEN_ERROR, "ai生成结论异常");
+        try {
+            ThrowUtils.throwIf(StringUtils.isBlank(analyse), ErrorCode.AI_GEN_ERROR, "ai生成结论异常");
+            ThrowUtils.throwIf(StringUtils.isBlank(code), ErrorCode.AI_GEN_ERROR, "ai生成代码异常");
+        }catch (BusinessException e){
+            return ResultUtils.error(ErrorCode.AI_GEN_ERROR);
+        }
 
         /**
          * 存入数据库
@@ -126,19 +135,24 @@ public class ChartController {
         Chart Chart = new Chart();
         Chart.setGoal(goal);
         Chart.setName(name);
-        Chart.setChartData(csv);
         Chart.setChartType(chartType);
-        // 生成图表代码存储至
-        Chart.setGenChart(code);
         Chart.setGenResult(analyse);
         Chart.setUserId(loginUser.getId());
+        // 存储基本信息
         boolean result = ChartService.save(Chart);
-        // 保存失败
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR, "图表信息保存失败");
+        // 获得图表id
+        Long chartId = Chart.getId();
+        // 生成图表代码存储至图表核心数据类
+        ChartCoreData coreData = new ChartCoreData();
+        coreData.setChartData(csv);
+        coreData.setGenChart(code);
+        coreData.setChartId(chartId);
+        boolean coreSave = chartCoreDataService.save(coreData);
+        // todo 保存失败
+        ThrowUtils.throwIf(!result||!coreSave, ErrorCode.OPERATION_ERROR, "图表信息保存失败");
         /**
          * 返回生成图表信息
          */
-        Long chartId = Chart.getId();
         BiResponse biResponse = new BiResponse();
         biResponse.setId(chartId);
         biResponse.setGenChart(code);
@@ -177,11 +191,15 @@ public class ChartController {
         Chart Chart = new Chart();
         Chart.setGoal(goal);
         Chart.setName(name);
-        Chart.setChartData(csv);
         Chart.setChartType(chartType);
         Chart.setUserId(loginUser.getId());
         Chart.setChartStatus(ChartConstant.WAITING);
         boolean result = ChartService.save(Chart);
+
+        // 生成图表代码存储至图表核心数据类
+        ChartCoreData coreData = new ChartCoreData();
+        coreData.setChartData(csv);
+
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         // 获得该图表id
         Long chartId = Chart.getId();
@@ -208,15 +226,21 @@ public class ChartController {
             String code = splits[0].trim();
             String analyse = splits[1].trim();
 
-            // 生成图表代码存储
-            Chart.setGenChart(code);
+            /**
+             * 生成图表存储
+             */
+            // 生成图表代码存储至图表核心数据类
+            ChartCoreData finishCoreData = new ChartCoreData();
+            finishCoreData.setChartId(chartId);
+            finishCoreData.setChartData(csv);
+            finishCoreData.setGenChart(code);
+            boolean coreSave = chartCoreDataService.save(finishCoreData);
+            // 保存生成结论，修改生成成功更改状态
             Chart.setGenResult(analyse);
-            Chart.setUserId(loginUser.getId());
-            // 生成成功更改状态
             Chart.setChartStatus(ChartConstant.SUCCEED);
             boolean succeed = ChartService.save(Chart);
             // 保存失败
-            if (!succeed) {
+            if (!succeed || !coreSave) {
                 ChartService.handleGenChartError(chartId, "更新图表succeed状态失败");
             }
         }, threadPoolExecutor);
@@ -256,14 +280,19 @@ public class ChartController {
         Chart Chart = new Chart();
         Chart.setGoal(goal);
         Chart.setName(name);
-        Chart.setChartData(csv);
         Chart.setChartType(chartType);
         Chart.setUserId(loginUser.getId());
         Chart.setChartStatus(ChartConstant.WAITING);
         boolean result = ChartService.save(Chart);
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         // 获得该图表id
         Long chartId = Chart.getId();
+
+        // 生成图表代码存储至图表核心数据类
+        ChartCoreData coreData = new ChartCoreData();
+        coreData.setChartData(csv);
+        coreData.setChartId(chartId);
+        boolean coreSave = chartCoreDataService.save(coreData);
+        ThrowUtils.throwIf(!result || !coreSave, ErrorCode.OPERATION_ERROR);
         /**
          * 使用消息队列保存消息
          */
@@ -291,10 +320,8 @@ public class ChartController {
      * @return
      */
     @PostMapping("/delete")
-    public BaseResponse<Boolean> deleteChart(@RequestBody DeleteRequest deleteRequest, HttpServletRequest request) {
-        if (deleteRequest == null || deleteRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
+    public BaseResponse<Boolean> deleteChart(@Valid @NotNull @RequestBody DeleteRequest deleteRequest,@NotNull HttpServletRequest request) throws RuntimeException{
+
         User user = userService.getLoginUser(request);
         long id = deleteRequest.getId();
         // 判断是否存在
@@ -305,47 +332,59 @@ public class ChartController {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         boolean b = ChartService.removeById(id);
+        chartCoreDataService.removeById(id);
         return ResultUtils.success(b);
     }
 
-    /**
-     * 更新（仅管理员）
-     *
-     * @param ChartUpdateRequest
-     * @return
-     */
 
     /**
-     * 根据 id 获取
+     * 根据 图表id 获取图表信息
      *
-     * @param id
+     * @param id 图表Id
      * @return
      */
     @GetMapping("/get")
-    public BaseResponse<ChartVO> getChartVOById(@NotNull long id, @NotNull HttpServletRequest request) {
-        if (id <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
+    public BaseResponse<ChartVO> getChartVOById(@Min(0) long id, @NotNull HttpServletRequest request) {
+
+        // 校验是否登录
+        userService.getLoginUser(request);
+
         Chart Chart = ChartService.getById(id);
         if (Chart == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        return ResultUtils.success(ChartService.getChartVO(Chart, request));
+        ChartCoreData chartCoreData = chartCoreDataService.getOne(getQueryCoreWrapper(id));
+        // 存入chart中
+        Chart.setGenChart(chartCoreData.getGenChart());
+        Chart.setChartData(chartCoreData.getChartData());
+        return ResultUtils.success(ChartService.ChartToChartVO(Chart));
     }
 
     /**
-     * 分页获取列表（仅管理员）
+     * 分页获取不限本用户列表（仅管理员）
      *
      * @param ChartQueryRequest
      * @return
      */
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @PostMapping("/list/page")
-    public BaseResponse<Page<Chart>> listChartByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest) {
+    public BaseResponse<Page<Chart>> listChartByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest, @NotNull HttpServletRequest request) {
+
+        // 校验是否登录
+       userService.getLoginUser(request);
+
         long current = ChartQueryRequest.getCurrent();
         long size = ChartQueryRequest.getPageSize();
         Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
                 getQueryWrapper(ChartQueryRequest));
+        // 从chartCoreData中获取数据传回chart实体类中
+        for (Chart chart : ChartPage.getRecords()) {
+            Long chartId = chart.getId();
+            ChartCoreData chartCoreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+            // 存入chart中
+            chart.setGenChart(chartCoreData.getGenChart());
+            chart.setChartData(chartCoreData.getChartData());
+        }
         return ResultUtils.success(ChartPage);
     }
 
@@ -359,13 +398,22 @@ public class ChartController {
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<ChartVO>> listChartVOByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
                                                          @NotNull HttpServletRequest request) {
+        // 校验是否登录
+        User loginUser = userService.getLoginUser(request);
         long current = ChartQueryRequest.getCurrent();
         long size =  ChartQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
                 getQueryWrapper(ChartQueryRequest));
-        return ResultUtils.success(ChartService.getChartVOPage(ChartPage, request));
+        // 从chartCoreData中获取数据传回chart实体类中
+            for (Chart chart : ChartPage.getRecords()) {
+                Long chartId = chart.getId();
+                ChartCoreData coreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+                chart.setGenChart(coreData.getGenChart());
+                chart.setChartData(coreData.getChartData());
+            }
+        return ResultUtils.success(ChartService.getChartVOPage(ChartPage));
     }
 
     /**
@@ -378,11 +426,9 @@ public class ChartController {
     @PostMapping("/my/list/page/vo")
     public BaseResponse<Page<ChartVO>> listMyChartVOByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
                                                            @NotNull HttpServletRequest request) {
-
-        if (ChartQueryRequest == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
+        // 校验是否登录
         User loginUser = userService.getLoginUser(request);
+
         ChartQueryRequest.setUserId(loginUser.getId());        
         long current = ChartQueryRequest.getCurrent();
         long size =  ChartQueryRequest.getPageSize();
@@ -390,7 +436,14 @@ public class ChartController {
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
                 getQueryWrapper(ChartQueryRequest));
-        return ResultUtils.success(ChartService.getChartVOPage(ChartPage, request));
+        // 从chartCoreData中获取数据传回chart实体类中
+        for (Chart chart : ChartPage.getRecords()) {
+            Long chartId = chart.getId();
+            ChartCoreData coreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+            chart.setGenChart(coreData.getGenChart());
+            chart.setChartData(coreData.getChartData());
+        }
+        return ResultUtils.success(ChartService.getChartVOPage(ChartPage));
     }
 
     /**
@@ -401,20 +454,24 @@ public class ChartController {
      * @return
      */
     @PostMapping("/my/list/page")
-    public BaseResponse<Page<Chart>> listMyChartByPage(@Valid @RequestBody ChartQueryRequest ChartQueryRequest,
+    public BaseResponse<Page<Chart>> listMyChartByPage(@NotNull @Valid @RequestBody ChartQueryRequest ChartQueryRequest,
                                                        @NotNull  HttpServletRequest request) {
-        if (ChartQueryRequest == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
         User loginUser = userService.getLoginUser(request);
         ChartQueryRequest.setUserId(loginUser.getId());
         long current = ChartQueryRequest.getCurrent();
         long size =  ChartQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
-        Page<Chart> chartPage = ChartService.page(new Page<>(current, size),
+        Page<Chart> ChartPage = ChartService.page(new Page<>(current, size),
                 getQueryWrapper(ChartQueryRequest));
-        return ResultUtils.success(chartPage);
+        // 从chartCoreData中获取数据传回chart实体类中
+        for (Chart chart : ChartPage.getRecords()) {
+            Long chartId = chart.getId();
+            ChartCoreData coreData = chartCoreDataService.getOne(getQueryCoreWrapper(chartId));
+            chart.setGenChart(coreData.getGenChart());
+            chart.setChartData(coreData.getChartData());
+        }
+        return ResultUtils.success(ChartPage);
     }
 
 
@@ -440,6 +497,20 @@ public class ChartController {
         queryWrapper.orderBy(SqlUtils.validSortField(sortField), sortOrder.equals(CommonConstant.SORT_ORDER_ASC),
                 sortField);
         return queryWrapper;
+    }
+
+    /**
+     *  queryWrapper构造根据chartId查询chart核心数据
+     * @param chartId
+     * @return
+     */
+    private QueryWrapper<ChartCoreData> getQueryCoreWrapper(Long chartId) {
+        QueryWrapper<ChartCoreData> queryCoreWrapper = new QueryWrapper<>();
+        if (chartId == null) {
+            return queryCoreWrapper;
+        }
+        queryCoreWrapper.eq("chartId", chartId);
+        return queryCoreWrapper;
     }
 
 

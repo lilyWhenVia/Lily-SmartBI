@@ -49,17 +49,17 @@ public class Chart implements Serializable {
     private String chartData;
 
     /**
-     * 生成图表的类型
-     */
-    private String chartType;
-
-    /**
      * 生成的图表
      */
     private String genChart;
 
     /**
-     * 生成的图表
+     * 生成图表的类型
+     */
+    private String chartType;
+
+    /**
+     * 生成的结论
      */
     private String genResult;
 

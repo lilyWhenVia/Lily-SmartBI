@@ -35,8 +35,7 @@
     {
       "name": "spring.redis.database",
       "type": "java.lang.Integer",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig",
-      "defaultValue": 0
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
     },
     {
       "name": "spring.redis.host",
@@ -56,8 +55,7 @@
     {
       "name": "spring.redis.timeout",
       "type": "java.lang.Integer",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig",
-      "defaultValue": 0
+      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
     },
     {
       "name": "wx.open.appId",
