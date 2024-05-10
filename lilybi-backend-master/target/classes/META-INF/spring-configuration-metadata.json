@@ -2,8 +2,8 @@
   "groups": [
     {
       "name": "spring.redis",
-      "type": "com.lilyVia.springbootinit.config.redissonConfig",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "type": "com.lilyVia.springbootinit.config.RedissonConfig",
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig"
     },
     {
       "name": "xunfei.client",
@@ -35,27 +35,29 @@
     {
       "name": "spring.redis.database",
       "type": "java.lang.Integer",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig",
+      "defaultValue": 0
     },
     {
       "name": "spring.redis.host",
       "type": "java.lang.String",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig"
     },
     {
       "name": "spring.redis.password",
       "type": "java.lang.String",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig"
     },
     {
       "name": "spring.redis.port",
       "type": "java.lang.String",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig"
     },
     {
       "name": "spring.redis.timeout",
       "type": "java.lang.Integer",
-      "sourceType": "com.lilyVia.springbootinit.config.redissonConfig"
+      "sourceType": "com.lilyVia.springbootinit.config.RedissonConfig",
+      "defaultValue": 0
     },
     {
       "name": "wx.open.appId",

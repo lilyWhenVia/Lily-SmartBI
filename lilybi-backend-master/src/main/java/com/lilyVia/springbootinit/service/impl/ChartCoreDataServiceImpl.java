@@ -1,5 +1,6 @@
 package com.lilyVia.springbootinit.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lilyVia.springbootinit.model.entity.ChartCoreData;
 import com.lilyVia.springbootinit.service.ChartCoreDataService;
@@ -14,6 +15,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class ChartCoreDataServiceImpl extends ServiceImpl<ChartCoreDataMapper, ChartCoreData>
     implements ChartCoreDataService{
+
+    @Override
+    public QueryWrapper<ChartCoreData> getQueryWrapper(Long chartId) {
+
+        QueryWrapper<ChartCoreData> queryWrapper = new QueryWrapper<>();
+
+        if (chartId == null) {
+            return queryWrapper;
+        }
+        queryWrapper.eq("chartId", chartId);
+        return queryWrapper;
+    }
+
+    @Override
+    public ChartCoreData getCoreDataById(Long chartId) {
+        QueryWrapper<ChartCoreData> queryWrapper = getQueryWrapper(chartId);
+        return getOne(queryWrapper);
+    }
 
 }
 

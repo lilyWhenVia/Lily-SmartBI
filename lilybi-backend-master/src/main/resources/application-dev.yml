@@ -42,7 +42,7 @@ spring:
         # 开启重试
         retry:
           enabled: true
-          max-attempts: 5
+          max-attempts: 1
           initial-interval: 5000
   # Elasticsearch 配置
   # todo 需替换配置，然后取消注释
@@ -71,3 +71,6 @@ xunfei:
     appid: caa08a16
     apiSecret: M2U2NWM3ODM0MDUzNmU0MTk5MzU4YjYx
     apiKey: 2361b34bd4db0a07e136d695b88c9b3e
+
+deploy:
+  ip: 127.0.0.1

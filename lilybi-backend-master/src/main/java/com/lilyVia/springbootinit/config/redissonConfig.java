@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("spring.redis")
 @Data
 @Slf4j
-public class redissonConfig {
+public class RedissonConfig {
 
     private String host;
 
@@ -34,7 +34,8 @@ public class redissonConfig {
     public RedissonClient redissonClient(){
         Config config = new Config();
         SingleServerConfig singleServerConfig = config.useSingleServer();
-        singleServerConfig.setAddress("redis://"+host+":6379")
+        singleServerConfig.setAddress("redis://"+host+":"+port)
+                .setPassword(password)
                 .setDatabase(database)
                 .setTimeout(timeout);
         RedissonClient redissonClient = Redisson.create(config);

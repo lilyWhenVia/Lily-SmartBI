@@ -1,70 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.52">
     <root id="1">
-      <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>|root||root|localhost|ALTER|G
-|root||self|localhost|ALTER|G
-|root||root|localhost|ALTER ROUTINE|G
-|root||self|localhost|ALTER ROUTINE|G
-|root||root|localhost|CREATE|G
-|root||self|localhost|CREATE|G
-|root||root|localhost|CREATE ROUTINE|G
-|root||self|localhost|CREATE ROUTINE|G
-|root||root|localhost|CREATE TABLESPACE|G
-|root||self|localhost|CREATE TABLESPACE|G
-|root||root|localhost|CREATE TEMPORARY TABLES|G
-|root||self|localhost|CREATE TEMPORARY TABLES|G
-|root||root|localhost|CREATE USER|G
-|root||self|localhost|CREATE USER|G
-|root||root|localhost|CREATE VIEW|G
-|root||self|localhost|CREATE VIEW|G
-|root||root|localhost|DELETE|G
-|root||self|localhost|DELETE|G
-|root||root|localhost|DROP|G
-|root||self|localhost|DROP|G
-|root||root|localhost|EVENT|G
-|root||self|localhost|EVENT|G
-|root||root|localhost|EXECUTE|G
-|root||self|localhost|EXECUTE|G
-|root||root|localhost|FILE|G
-|root||self|localhost|FILE|G
-|root||root|localhost|INDEX|G
-|root||self|localhost|INDEX|G
-|root||root|localhost|INSERT|G
-|root||self|localhost|INSERT|G
-|root||root|localhost|LOCK TABLES|G
-|root||self|localhost|LOCK TABLES|G
-|root||root|localhost|PROCESS|G
-|root||self|localhost|PROCESS|G
-|root||root|localhost|REFERENCES|G
-|root||self|localhost|REFERENCES|G
-|root||root|localhost|RELOAD|G
-|root||self|localhost|RELOAD|G
-|root||root|localhost|REPLICATION CLIENT|G
-|root||self|localhost|REPLICATION CLIENT|G
-|root||root|localhost|REPLICATION SLAVE|G
-|root||self|localhost|REPLICATION SLAVE|G
-|root||root|localhost|SELECT|G
-|root||self|localhost|SELECT|G
-|root||root|localhost|SHOW DATABASES|G
-|root||self|localhost|SHOW DATABASES|G
-|root||root|localhost|SHOW VIEW|G
-|root||self|localhost|SHOW VIEW|G
-|root||root|localhost|SHUTDOWN|G
-|root||self|localhost|SHUTDOWN|G
-|root||mysql.session|localhost|SUPER|G
-|root||root|localhost|SUPER|G
-|root||self|localhost|SUPER|G
-|root||root|localhost|TRIGGER|G
-|root||self|localhost|TRIGGER|G
-|root||root|localhost|UPDATE|G
-|root||self|localhost|UPDATE|G
-|root||root|localhost|grant option|G
-performance_schema|schema||mysql.session|localhost|SELECT|G
-sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <ServerVersion>5.7.41</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
@@ -776,6 +715,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </collation>
     <schema id="224" parent="1" name="easybi">
       <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2024-05-06.11:21:52</LastIntrospectionLocalTimestamp>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <schema id="225" parent="1" name="information_schema">
@@ -847,61 +787,58 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <column id="245" parent="241" name="id">
-      <AutoIncrement>1776159267217281026</AutoIncrement>
+      <AutoIncrement>1787440585985044483</AutoIncrement>
       <Comment>id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="246" parent="241" name="chartStatus">
       <Comment>图表处理状态</Comment>
-      <DataType>tinyint(4)|0s</DataType>
+      <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="247" parent="241" name="executorMessage">
       <Comment>图表处理状态信息</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="248" parent="241" name="goal">
       <Comment>分析目标</Comment>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
+      <DasType>text|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="249" parent="241" name="chartData">
       <Comment>目标图表数据</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="250" parent="241" name="chartType">
       <Comment>生成图表的类型</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DasType>varchar(128)|0s</DasType>
       <Position>6</Position>
     </column>
     <column id="251" parent="241" name="genChart">
       <Comment>生成的图表</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>7</Position>
     </column>
     <column id="252" parent="241" name="userId">
       <Comment>创建用户 id</Comment>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DasType>bigint(20)|0s</DasType>
       <Position>8</Position>
     </column>
     <column id="253" parent="241" name="createTime">
       <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
     <column id="254" parent="241" name="updateTime">
       <Comment>更新时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
@@ -909,19 +846,19 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="255" parent="241" name="isDelete">
       <Comment>是否删除</Comment>
-      <DataType>tinyint(4)|0s</DataType>
+      <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
     <column id="256" parent="241" name="name">
       <Comment>图表名称</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DasType>varchar(128)|0s</DasType>
       <Position>12</Position>
     </column>
     <column id="257" parent="241" name="genResult">
       <Comment>分析结论</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>13</Position>
     </column>
     <index id="258" parent="241" name="PRIMARY">
@@ -935,26 +872,26 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="260" parent="242" name="id">
-      <AutoIncrement>12</AutoIncrement>
+      <AutoIncrement>18</AutoIncrement>
       <Comment>id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="261" parent="242" name="chartId">
       <Comment>图表信息表的id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="262" parent="242" name="genChart">
       <Comment>生成的图表</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="263" parent="242" name="chartData">
       <Comment>目标图表数据</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>4</Position>
     </column>
     <foreign-key id="264" parent="242" name="chart_core_data_ibfk_1">
@@ -977,62 +914,62 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="268" parent="243" name="id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <Comment>id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="269" parent="243" name="createTime">
       <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="270" parent="243" name="executorMessage">
       <Comment>ai问答处理状态信息</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="271" parent="243" name="isDelete">
       <Comment>是否删除</Comment>
-      <DataType>tinyint(4)|0s</DataType>
+      <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="272" parent="243" name="questionGoal">
       <Comment>分析目标</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="273" parent="243" name="questionName">
       <Comment>ai问答名称</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DasType>varchar(128)|0s</DasType>
       <Position>6</Position>
     </column>
     <column id="274" parent="243" name="questionResult">
       <Comment>目标ai问答数据</Comment>
-      <DataType>text|0s</DataType>
+      <DasType>text|0s</DasType>
       <Position>7</Position>
     </column>
     <column id="275" parent="243" name="questionStatus">
       <Comment>ai问答处理状态</Comment>
-      <DataType>tinyint(4)|0s</DataType>
+      <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
     <column id="276" parent="243" name="questionType">
       <Comment>生成ai问答的类型</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DasType>varchar(128)|0s</DasType>
       <Position>9</Position>
     </column>
     <column id="277" parent="243" name="updateTime">
       <Comment>更新时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
@@ -1040,7 +977,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="278" parent="243" name="userId">
       <Comment>创建用户 id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
@@ -1057,59 +994,59 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="281" parent="244" name="id">
       <AutoIncrement>1776288603194908675</AutoIncrement>
       <Comment>id</Comment>
-      <DataType>bigint(20)|0s</DataType>
+      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="282" parent="244" name="userAccount">
       <Comment>账号</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="283" parent="244" name="userPassword">
       <Comment>密码</Comment>
-      <DataType>varchar(512)|0s</DataType>
+      <DasType>varchar(512)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="284" parent="244" name="unionId">
       <Comment>微信开放平台id</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="285" parent="244" name="mpOpenId">
       <Comment>公众号openId</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="286" parent="244" name="userName">
       <Comment>用户昵称</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>6</Position>
     </column>
     <column id="287" parent="244" name="userAvatar">
       <Comment>用户头像</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <Position>7</Position>
     </column>
     <column id="288" parent="244" name="userRole">
       <Comment>用户角色：user/admin</Comment>
-      <DataType>varchar(256)|0s</DataType>
+      <DasType>varchar(256)|0s</DasType>
       <DefaultExpression>&apos;user&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
     <column id="289" parent="244" name="createTime">
       <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
     <column id="290" parent="244" name="updateTime">
       <Comment>更新时间</Comment>
-      <DataType>datetime|0s</DataType>
+      <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
@@ -1117,21 +1054,21 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="291" parent="244" name="isDelete">
       <Comment>是否删除</Comment>
-      <DataType>tinyint(4)|0s</DataType>
+      <DasType>tinyint(4)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
     <column id="292" parent="244" name="remainFrequency">
       <Comment>剩余ai使用次数</Comment>
-      <DataType>int(11)|0s</DataType>
+      <DasType>int(11)|0s</DasType>
       <DefaultExpression>10</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>12</Position>
     </column>
     <column id="293" parent="244" name="totalFrequency">
       <Comment>已使用ai使用次数</Comment>
-      <DataType>int(11)|0s</DataType>
+      <DasType>int(11)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>13</Position>

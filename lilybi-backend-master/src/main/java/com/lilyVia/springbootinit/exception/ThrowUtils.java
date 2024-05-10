@@ -18,6 +18,7 @@ public class ThrowUtils {
      */
     public static void throwIf(boolean condition, RuntimeException runtimeException) {
         if (condition) {
+            log.error(runtimeException.getMessage()+","+runtimeException);
             throw new RuntimeException();
         }
     }
@@ -29,7 +30,6 @@ public class ThrowUtils {
      * @param errorCode
      */
     public static void throwIf(boolean condition, ErrorCode errorCode) {
-        log.error(errorCode.getMessage());
         throwIf(condition, new BusinessException(errorCode));
     }
 
@@ -41,7 +41,6 @@ public class ThrowUtils {
      * @param message
      */
     public static void throwIf(boolean condition, ErrorCode errorCode, String message) {
-        log.error(errorCode.getMessage()+","+message);
         throwIf(condition, new BusinessException(errorCode, message));
     }
 }

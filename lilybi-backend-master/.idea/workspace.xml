@@ -29,44 +29,48 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
         <option name="showDialogWithAdvancedSettings" value="true" />
-        <option name="useMavenConfig" value="true" />
         <option name="userSettingsFile" value="E:\maven\apache-maven-3.8.7\conf\settings.xml" />
       </MavenGeneralSettings>
-    </option>
-    <option name="enabledProfiles">
-      <list>
-        <option value="jdk-1.8" />
-      </list>
     </option>
   </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2dXlb5kZoifcBVaS6o2lipgDFBU" />
   <component name="ProjectViewState">
     <option name="foldersAlwaysOnTop" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
     <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JAR Application.easyBI-backend-0.0.3-SNAPSHOT.jar.executor": "Run",
+    "Maven.easyBI-backend [clean].executor": "Run",
+    "Maven.easyBI-backend [package].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MainApplication.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "database.data.extractors.current.export.id": "SQL Inserts",
     "database.data.extractors.current.id": "SQL Inserts",
-    "last_opened_file_path": "D:/JavaProject/easyBI/lilybi-backend-master/src/main/java/com/lilyVia/springbootinit/controller",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/JavaProject/OnlineJudge/lily-oj-microservice",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "terminal",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "67400c1ef93e7a0e741dfff1c1bc5ca0"
   },
   "keyToStringList": {
@@ -80,13 +84,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\sql" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\controller" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\model\dto\question" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto\chart" />
-      <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\sql" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\resources\mapper" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources\mapper" />
@@ -107,11 +112,11 @@
       <recent name="com.yupi.springbootinit.manager" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lilyVia.springbootinit.config" />
       <recent name="com.lilyVia.springbootinit.constant" />
       <recent name="com.lilyVia.springbootinit.model.vo" />
       <recent name="com.lilyVia.springbootinit.controller" />
       <recent name="com.yupi.springbootinit.mq" />
-      <recent name="com.yupi.springbootinit.controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -124,19 +129,6 @@
   <component name="RunManager" selected="Spring Boot.MainApplication">
     <configuration name="RoutingDLXConsumer1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXConsumer1" />
-      <module name="easyBI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yupi.springbootinit.mq.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoutingDLXConsumer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yupi.springbootinit.mq.RoutingDLXConsumer2" />
       <module name="easyBI" />
       <extension name="coverage">
         <pattern>
@@ -182,6 +174,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="easyBI-backend-0.0.3-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/easyBI-backend-0.0.3-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="MainApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="easyBI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
@@ -200,7 +196,7 @@
       <option name="ACTIVE_PROFILES" />
       <option name="ALTERNATIVE_JRE_PATH" value="E:/Java/java-18.0.2.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <module name="lilybi-backend-master" />
+      <module name="easyBI-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,13 +204,20 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.easyBI-backend-0.0.3-SNAPSHOT.jar" />
         <item itemvalue="JUnit.ChartCoreDataServiceTest.chartCoreDataTest" />
         <item itemvalue="Database Script.chart.sql" />
         <item itemvalue="Application.RoutingDLXConsumer1" />
         <item itemvalue="Application.RoutingDLXProducer" />
-        <item itemvalue="Application.RoutingDLXConsumer2" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -249,9 +252,65 @@
       <workItem from="1712197107107" duration="9197000" />
       <workItem from="1712235976881" duration="862000" />
       <workItem from="1712286034324" duration="3377000" />
-      <workItem from="1712334796396" duration="12522000" />
+      <workItem from="1712334796396" duration="12717000" />
+      <workItem from="1712493029840" duration="585000" />
+      <workItem from="1713967131958" duration="189000" />
+      <workItem from="1714222177479" duration="4343000" />
+      <workItem from="1714462139210" duration="13146000" />
+      <workItem from="1714991873360" duration="15680000" />
+      <workItem from="1715238539756" duration="146000" />
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/utils/FileUtils.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/utils/FileUtils.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/utils/FileUtils.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
+          <line>258</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
+          <line>282</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/rabbitMq/BiMqConsumer.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/rabbitMq/BiMqConsumer.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/utils/FileUtils.java</url>
+          <line>30</line>
+          <properties class="com.lilyVia.springbootinit.utils.FileUtils" method="getFileString">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

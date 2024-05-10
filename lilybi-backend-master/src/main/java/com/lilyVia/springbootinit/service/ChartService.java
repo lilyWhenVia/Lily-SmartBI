@@ -26,7 +26,6 @@ public interface ChartService extends IService<Chart> {
 
     String getAiQuestion(String csv, String goal, String chartType);
 
-
     void saveChartResult(long chartId, String code, String analyse);
 
     ChartVO ChartToChartVO(Chart Chart);

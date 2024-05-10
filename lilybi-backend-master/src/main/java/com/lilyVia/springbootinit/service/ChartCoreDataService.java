@@ -1,5 +1,8 @@
 package com.lilyVia.springbootinit.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.lilyVia.springbootinit.model.dto.chart.ChartQueryRequest;
+import com.lilyVia.springbootinit.model.entity.Chart;
 import com.lilyVia.springbootinit.model.entity.ChartCoreData;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +13,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ChartCoreDataService extends IService<ChartCoreData> {
 
+
+    QueryWrapper<ChartCoreData> getQueryWrapper(Long chartId);
+
+    ChartCoreData getCoreDataById(Long chartId);
 }

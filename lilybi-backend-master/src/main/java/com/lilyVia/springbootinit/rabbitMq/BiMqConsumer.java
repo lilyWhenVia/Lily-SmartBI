@@ -1,5 +1,8 @@
 package com.lilyVia.springbootinit.rabbitMq;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.lilyVia.springbootinit.model.entity.ChartCoreData;
+import com.lilyVia.springbootinit.service.ChartCoreDataService;
 import com.lilyVia.springbootinit.service.impl.ChartServiceImpl;
 import com.rabbitmq.client.Channel;
 import com.lilyVia.springbootinit.common.ErrorCode;
@@ -34,6 +37,10 @@ public class BiMqConsumer {
     @Resource
     private AIManager aiManager;
 
+    @Resource
+    private ChartCoreDataService chartCoreDataService;
+
+
 
     /**
      * 定义了接收消息后的处理流程
@@ -59,8 +66,10 @@ public class BiMqConsumer {
             ChartService.handleGenChartError(chartId, "更新图表running状态失败");
         }
         // 获得用户输入拼接后的ai对话
+
+        ChartCoreData coreData = chartCoreDataService.getCoreDataById(chartId);
+        String csv = coreData.getChartData();
         Chart savedChart = ChartService.getById(chartId);
-        String csv = savedChart.getChartData();
         String goal = savedChart.getGoal();
         String chartType = savedChart.getChartType();
         String aiQuestion = ChartService.getAiQuestion(csv, goal, chartType);

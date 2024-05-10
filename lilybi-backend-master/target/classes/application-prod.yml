@@ -22,8 +22,8 @@ spring:
   rabbitmq:
     port: 5672
     host: localhost
-    username: lily
-    password: 12345678
+    username: guest
+    password: guest
     listener:
       simple:
         # ACK模式(默认为auto)
@@ -31,7 +31,7 @@ spring:
         # 开启重试
         retry:
           enabled: true
-          max-attempts: 3
+          max-attempts: 1
           initial-interval: 3000
 mybatis-plus:
   configuration:
@@ -51,3 +51,7 @@ xunfei:
     appid: caa08a16
     apiSecret: M2U2NWM3ODM0MDUzNmU0MTk5MzU4YjYx
     apiKey: 2361b34bd4db0a07e136d695b88c9b3e
+
+# 部署配置
+deploy:
+  ip: 121.40.249.83

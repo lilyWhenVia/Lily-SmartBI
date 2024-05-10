@@ -1,5 +1,6 @@
 package com.lilyVia.springbootinit.utils;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.lilyVia.springbootinit.common.ErrorCode;
 import com.lilyVia.springbootinit.exception.BusinessException;
 import org.apache.commons.lang3.StringUtils;
@@ -39,4 +40,5 @@ public class SqlUtils {
         }
         return true;
     }
+
 }

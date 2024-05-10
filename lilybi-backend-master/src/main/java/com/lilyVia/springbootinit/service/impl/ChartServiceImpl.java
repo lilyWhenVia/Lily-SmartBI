@@ -137,11 +137,13 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart> implements
         ChartCoreData coreData = new ChartCoreData();
         coreData.setGenChart(code);
         coreData.setChartId(chartId);
-        boolean coreSave = chartCoreDataService.save(coreData);
+        boolean coreSave = chartCoreDataService.update(coreData, new QueryWrapper<ChartCoreData>().eq("chartId", chartId));
         // 生成成功更改状态
         Chart chart = new Chart();
+        chart.setId(chartId);
+        chart.setGenResult(analyse);
         chart.setChartStatus(ChartConstant.SUCCEED);
-        boolean succeed = this.save(chart);
+        boolean succeed = this.updateById(chart);
         if (!succeed) {
             handleGenChartError(chartId, "更新图表succeed状态失败");
         }

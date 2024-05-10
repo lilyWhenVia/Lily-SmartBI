@@ -271,7 +271,7 @@ public class ChartController {
         // 获得该图表id
         Long chartId = Chart.getId();
 
-        // 生成图表代码存储至图表核心数据类
+        // 图表存储至图表核心数据类
         ChartCoreData coreData = new ChartCoreData();
         coreData.setChartData(csv);
         coreData.setChartId(chartId);

@@ -23,7 +23,11 @@ import java.util.Map;
 @Slf4j
 public class FileUtils {
 
-    // todo 数据正则获取
+    /**
+     * 读取文件并转换为字符串
+     * @param multipartFile 文件
+     * @return 文件字符串
+     */
     public static String getFileString(MultipartFile multipartFile){
         if (multipartFile==null||ObjectUtils.isEmpty(multipartFile)){
             log.error("multipartFile is null or empty");

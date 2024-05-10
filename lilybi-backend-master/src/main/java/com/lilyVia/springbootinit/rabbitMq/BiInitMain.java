@@ -19,13 +19,13 @@ public class BiInitMain {
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
+        // 死信队列与交换机绑定
 
         // 工作队列与交换机绑定
         channel.exchangeDeclare(MqConstant.BI_WORK_EXCHANGE, "direct");
         channel.queueDeclare(MqConstant.BI_WORK_QUEUE, true, false, false, null);
         channel.queueBind(MqConstant.BI_WORK_QUEUE, MqConstant.BI_WORK_EXCHANGE, MqConstant.BI_WORK_ROUTING_KEY);
 
-        // 死信队列与交换机绑定
 
 
     }

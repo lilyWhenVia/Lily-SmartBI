@@ -1,73 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@121.40.249.83">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
-    <root id="1">
-      <DefaultCasing>exact</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>|root||lily||ALTER|G
-|root||root|localhost|ALTER|G
-|root||lily||ALTER ROUTINE|G
-|root||root|localhost|ALTER ROUTINE|G
-|root||lily||CREATE|G
-|root||root|localhost|CREATE|G
-|root||lily||CREATE ROUTINE|G
-|root||root|localhost|CREATE ROUTINE|G
-|root||lily||CREATE TABLESPACE|G
-|root||root|localhost|CREATE TABLESPACE|G
-|root||lily||CREATE TEMPORARY TABLES|G
-|root||root|localhost|CREATE TEMPORARY TABLES|G
-|root||lily||CREATE USER|G
-|root||root|localhost|CREATE USER|G
-|root||lily||CREATE VIEW|G
-|root||root|localhost|CREATE VIEW|G
-|root||lily||DELETE|G
-|root||root|localhost|DELETE|G
-|root||lily||DROP|G
-|root||root|localhost|DROP|G
-|root||lily||EVENT|G
-|root||root|localhost|EVENT|G
-|root||lily||EXECUTE|G
-|root||root|localhost|EXECUTE|G
-|root||lily||FILE|G
-|root||root|localhost|FILE|G
-|root||lily||INDEX|G
-|root||root|localhost|INDEX|G
-|root||lily||INSERT|G
-|root||root|localhost|INSERT|G
-|root||lily||LOCK TABLES|G
-|root||root|localhost|LOCK TABLES|G
-|root||lily||PROCESS|G
-|root||root|localhost|PROCESS|G
-|root||lily||REFERENCES|G
-|root||root|localhost|REFERENCES|G
-|root||lily||RELOAD|G
-|root||root|localhost|RELOAD|G
-|root||lily||REPLICATION CLIENT|G
-|root||root|localhost|REPLICATION CLIENT|G
-|root||lily||REPLICATION SLAVE|G
-|root||root|localhost|REPLICATION SLAVE|G
-|root||lily||SELECT|G
-|root||root|localhost|SELECT|G
-|root||lily||SHOW DATABASES|G
-|root||root|localhost|SHOW DATABASES|G
-|root||lily||SHOW VIEW|G
-|root||root|localhost|SHOW VIEW|G
-|root||lily||SHUTDOWN|G
-|root||root|localhost|SHUTDOWN|G
-|root||lily||SUPER|G
-|root||mysql.session|localhost|SUPER|G
-|root||root|localhost|SUPER|G
-|root||lily||TRIGGER|G
-|root||root|localhost|TRIGGER|G
-|root||lily||UPDATE|G
-|root||root|localhost|UPDATE|G
-|root||lily||grant option|G
-|root||root|localhost|grant option|G
-performance_schema|schema||mysql.session|localhost|SELECT|G
-sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
-      <ServerVersion>5.7.44</ServerVersion>
-    </root>
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.52">
+    <root id="1"/>
     <collation id="2" parent="1" name="big5_chinese_ci">
       <Charset>big5</Charset>
       <DefaultForCharset>1</DefaultForCharset>
