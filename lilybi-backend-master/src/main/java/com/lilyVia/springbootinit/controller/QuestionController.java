@@ -148,7 +148,6 @@ public class QuestionController {
             String questionResult = aiManager.chatWithAi(aiQuestion);
             User user = userService.getById(userId);
 
-
             // 生成结果存储
             Question questionSucceed = new Question();
             questionSucceed.setQuestionResult(questionResult);

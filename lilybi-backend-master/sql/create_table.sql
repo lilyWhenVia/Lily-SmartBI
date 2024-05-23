@@ -81,4 +81,3 @@ create table user
 
 create index idx_unionId
     on user (unionId);
-

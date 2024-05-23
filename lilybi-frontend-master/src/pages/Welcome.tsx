@@ -29,7 +29,7 @@ const Welcome: React.FC = () => {
     <PageContainer>
       <Card>
         <Alert
-          message={'欢迎使用Lily同学的智能BI平台！'}
+          message={'欢迎使用Lily同学的AIGC数据可视化系统平台！'}
           type="success"
           showIcon
           banner
@@ -48,13 +48,13 @@ const Welcome: React.FC = () => {
           <MyIcon type={'icon-Artboard'} />
         </Typography.Title>
         <Paragraph>
-          我们的智能BI平台是一个革命性的数据分析工具，为用户提供了轻松、快速且智能化的数据分析体验。
+          我们的AIGC数据可视化系统平台是一个革命性的数据分析工具，为用户提供了轻松、快速且智能化的数据分析体验。
         </Paragraph>
-        <Title level={3}>智能BI介绍</Title>
+        <Title level={3}>AIGC数据可视化系统介绍</Title>
         <Paragraph>
           <pre style={{ backgroundColor: '#d2d2d2', color: 'black' }}>{BIIntroduce}</pre>
         </Paragraph>
-        <Title level={3}>智能BI特点</Title>
+        <Title level={3}>AIGC数据可视化系统特点</Title>
         <Paragraph>
           1.
           自动化数据分析：项目采用AI技术，能够自动化地从原始数据中生成符合要求的图表和分析结论。用户只需要输入分析目标和原始数据，无需具备专业的数据分析知识，即可完成数据分析的过程。

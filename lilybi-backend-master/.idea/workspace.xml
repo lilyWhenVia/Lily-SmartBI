@@ -50,45 +50,45 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JAR Application.easyBI-backend-0.0.3-SNAPSHOT.jar.executor": "Run",
-    "Maven.easyBI-backend [clean].executor": "Run",
-    "Maven.easyBI-backend [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.MainApplication.executor": "Debug",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/JavaProject/OnlineJudge/lily-oj-microservice",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "67400c1ef93e7a0e741dfff1c1bc5ca0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JAR Application.easyBI-backend-0.0.3-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.easyBI-backend [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.easyBI-backend [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MainApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/easyBI/lilybi-backend-master/src/main/java/com/lilyVia/springbootinit/config&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;67400c1ef93e7a0e741dfff1c1bc5ca0&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\config" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\sql" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\controller" />
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\model\dto\question" />
       <recent name="D:\JavaProject\easyBI\easyBI\src\main\resources" />
-      <recent name="D:\JavaProject\easyBI\easyBI\src\main\java\com\yupi\springbootinit\model\dto\chart" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaProject\easyBI\lilybi-backend-master\sql" />
@@ -178,20 +178,6 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/easyBI-backend-0.0.3-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="MainApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="easyBI" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="lilybi-backend-master" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lilyVia.springbootinit.MainApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <option name="ALTERNATIVE_JRE_PATH" value="E:/Java/java-18.0.2.1" />
@@ -259,6 +245,10 @@
       <workItem from="1714462139210" duration="13146000" />
       <workItem from="1714991873360" duration="15680000" />
       <workItem from="1715238539756" duration="146000" />
+      <workItem from="1715321634251" duration="10526000" />
+      <workItem from="1715823139509" duration="4776000" />
+      <workItem from="1715848320888" duration="3858000" />
+      <workItem from="1716429017981" duration="5730000" />
     </task>
     <servers />
   </component>
@@ -282,12 +272,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
-          <line>258</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lilyVia/springbootinit/controller/ChartController.java</url>
-          <line>282</line>
+          <line>286</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

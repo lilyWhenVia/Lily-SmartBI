@@ -130,7 +130,7 @@ export default defineConfig({
     {
       requestLibPath: "import { request } from '@umijs/max'",
       // 或者使用在线的版本
-      schemaPath: 'http://localhost:8103/api/v2/api-docs',
+      schemaPath: 'http://127.0.0.1:8103/api/v2/api-docs',
       projectName: 'lilyBI',
       // schemaPath: join(__dirname, 'oneapi.json'),
       mock: false,

@@ -142,6 +142,7 @@ public class ChartController {
     }
 
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/gen/async")
     public BaseResponse<BiResponse> genChartByAiAsync(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) throws Exception {
 
@@ -219,9 +220,11 @@ public class ChartController {
             finishCoreData.setGenChart(code);
             boolean coreSave = chartCoreDataService.save(finishCoreData);
             // 保存生成结论，修改生成成功更改状态
-            Chart.setGenResult(analyse);
-            Chart.setChartStatus(ChartConstant.SUCCEED);
-            boolean succeed = ChartService.save(Chart);
+            Chart successChart = new Chart();
+            successChart.setGenResult(analyse);
+            successChart.setChartStatus(ChartConstant.SUCCEED);
+            successChart.setId(chartId);
+            boolean succeed = ChartService.updateById(successChart);
             // 保存失败
             if (!succeed || !coreSave) {
                 ChartService.handleGenChartError(chartId, "更新图表succeed状态失败");
@@ -238,6 +241,7 @@ public class ChartController {
 
     // todo 参数非空非空格校验失败 后端添加字段查询用户总共调接口次数
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/gen/async/mq")
     public BaseResponse<BiResponse> genChartByAiMQ(@RequestPart("file") MultipartFile multipartFile, @Valid @NotNull @ModelAttribute ChartAddRequest chartAddRequest, @NotNull HttpServletRequest request) {
 

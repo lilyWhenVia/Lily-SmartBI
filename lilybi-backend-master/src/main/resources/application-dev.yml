@@ -20,7 +20,7 @@ spring:
   # todo 需替换配置，然后取消注释
   redis:
     database: 1
-    host: 192.168.70.129
+    host: 192.168.70.130
     port: 6379
     timeout: 5000
 #    # redisson

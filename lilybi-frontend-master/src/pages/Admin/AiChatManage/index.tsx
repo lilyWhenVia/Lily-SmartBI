@@ -126,7 +126,7 @@ const ChatManage: React.FC = () => {
                 title={currentUser?.userName}
               />
               <>
-                {item.questionStatus == 'wait' && (
+                {item.questionStatus == '0' && (
                   <>
                     <Result
                       status="warning"
@@ -142,7 +142,7 @@ const ChatManage: React.FC = () => {
                     </Row>
                   </>
                 )}
-                {item.questionStatus == 'running' && (
+                {item.questionStatus == '3' && (
                   <>
                     <Result status="info" title="AI正在解答中...." subTitle={item.executorMessage} />
                     <Row justify={'end'}>
@@ -154,7 +154,7 @@ const ChatManage: React.FC = () => {
                     </Row>
                   </>
                 )}
-                {item.questionStatus == 'succeed' && (
+                {item.questionStatus == '1' && (
                   <>
                     <p
                       style={{
@@ -198,7 +198,7 @@ const ChatManage: React.FC = () => {
                     </Row>
                   </>
                 )}
-                {item.questionStatus == 'failed' && (
+                {item.questionStatus == '2' && (
                   <>
                     <Result status="error" title="AI解答失败" subTitle={item.executorMessage} />
                     <Row justify="end">

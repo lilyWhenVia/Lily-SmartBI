@@ -111,11 +111,13 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
  * 它基于 axios 和 ahooks 的 useRequest 提供了一套统一的网络请求和错误处理方案。
  * @doc https://umijs.org/docs/max/request#配置
  */
+
+
 export const request = {
 // dev? : 'http://bi.konglily.top'
   // 请求后端地址
-  baseURL: 'http://localhost:8101',
-  // baseURL:'http://bi.konglily.top',
+  // baseURL: 'http://127.0.0.1:8101',
+  baseURL:'http://127.0.0.1:8101',
   // 获取cookie
   withCredentials: true,
   ...errorConfig,

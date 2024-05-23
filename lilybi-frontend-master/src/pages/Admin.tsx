@@ -25,7 +25,7 @@ const Admin: React.FC = () => {
         </Typography.Title>
 
         <Alert
-          message={'全力打造智能BI系统'}
+          message={'全力打造AIGC数据可视化系统系统'}
           style={{
             margin: -12,
             marginBottom: 48,

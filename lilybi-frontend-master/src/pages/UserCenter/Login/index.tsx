@@ -78,7 +78,7 @@ const Login: React.FC = () => {
             title="智能 BI 数据分析平台"
             subTitle={
               <a href={WELCOME} target="_blank">
-                lily智能BI
+                lilyAIGC数据可视化系统
               </a>
             }
             submitter={{

@@ -61,6 +61,7 @@ D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springboot
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\model\vo\LoginUserVO.java
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\config\AiConfig.java
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\model\dto\user\UserRegisterRequest.java
+D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\config\CorsConfig.java
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\constant\QuestionConstant.java
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\utils\SqlUtils.java
 D:\JavaProject\easyBI\lilybi-backend-master\src\main\java\com\lilyVia\springbootinit\rabbitMq\BiMqConsumer.java

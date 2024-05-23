@@ -47,6 +47,7 @@ public class UserController {
      * @param userRegisterRequest
      * @return
      */
+    @CrossOrigin(origins = "*")
     @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
         if (userRegisterRequest == null) {
@@ -69,6 +70,7 @@ public class UserController {
      * @param request
      * @return
      */
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
         if (userLoginRequest == null) {

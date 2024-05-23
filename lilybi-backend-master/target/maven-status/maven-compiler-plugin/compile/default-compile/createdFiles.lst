@@ -62,6 +62,7 @@ com\lilyVia\springbootinit\service\QuestionService.class
 com\lilyVia\springbootinit\rabbitMq\BiMqProducer.class
 com\lilyVia\springbootinit\model\dto\question\QuestionEditRequest.class
 com\lilyVia\springbootinit\model\dto\user\UserUpdateRequest.class
+com\lilyVia\springbootinit\config\CorsConfig.class
 com\lilyVia\springbootinit\common\BiResponse.class
 com\lilyVia\springbootinit\model\dto\chart\ChartUpdateRequest.class
 com\lilyVia\springbootinit\mapper\ChartMapper.class

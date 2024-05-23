@@ -109,7 +109,7 @@ const AddChart: React.FC = () => {
                   </Button>
                   <Button htmlType="reset">重置内容</Button>
 
-                  <a href="https://www.yuque.com/kcslily/zpovmy/lab4hgt8rf9d6sia?singleDoc# 《智能BI系统测试数据下载》" target='_blank'>
+                  <a href="https://www.yuque.com/kcslily/zpovmy/lab4hgt8rf9d6sia?singleDoc# 《AIGC数据可视化系统系统测试数据下载》" target='_blank'>
                     <Button
                       block
                       shape='round'
